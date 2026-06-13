@@ -10,7 +10,8 @@
       "default",
       {
         "ignore": [
-          "user-select"
+          "user-select",
+          "-webkit-text-size-adjust"
         ]
       }
     ],
