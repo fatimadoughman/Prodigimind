@@ -116,24 +116,29 @@
   }
 }
 
-/* Mobile */
+
 @media (max-width: 768px) {
-  .navbar {
-    height: 70px;
-    padding: 0 22px;
-  }
-
-  .logo {
-    font-size: 25px;
-  }
-
-  .admin-btn {
-    display: none;
-  }
-
   .menu-icon {
     display: block;
   }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+.menu-icon {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: var(--text);
+  z-index: 2001;
+  position: relative;
+  padding: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
 
   .nav-links {
     position: absolute;
@@ -167,9 +172,9 @@
   .nav-links a::after {
     display: none;
   }
-}
 
-/* Small mobile */
+
+
 @media (max-width: 420px) {
   .navbar {
     padding: 0 16px;
