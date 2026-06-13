@@ -4,7 +4,7 @@ import { AdminLogin } from "./admin-login/admin-login";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AdminLogin],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

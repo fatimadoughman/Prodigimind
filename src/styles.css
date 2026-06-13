@@ -1,3 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+:root {
+  --primary: #f99116;
+  --secondary: #f9f8f8;
+  --text: #17264d;
+}
