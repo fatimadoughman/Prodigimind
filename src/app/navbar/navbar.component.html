@@ -8,7 +8,9 @@
     <a routerLink="/projects" (click)="closeMenu()">Projects</a>
     <a routerLink="/about" (click)="closeMenu()">About</a>
   </div>
-
+<p style="position:absolute; top:80px; right:20px; z-index:9999; background:red; color:white;">
+  menuOpen: {{ menuOpen }}
+</p>
   <a routerLink="/admin" class="admin-btn">Admin</a>
 
   <button class="menu-icon" type="button" (click)="toggleMenu()">
