@@ -10,21 +10,19 @@
   justify-content: space-between;
 
   padding: 0 70px;
-  .navbar {
-  background: red !important;
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
   border-bottom: 1px solid rgba(23, 38, 77, 0.08);
   box-shadow: 0 8px 30px rgba(23, 38, 77, 0.06);
-}}
+}
 
 .logo {
-  display: flex;
-  align-items: center;
   font-size: 34px;
   font-weight: 900;
   letter-spacing: -1px;
+  cursor: pointer;
 
   background: linear-gradient(90deg, var(--text), var(--primary));
   -webkit-background-clip: text;
@@ -33,6 +31,7 @@
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 42px;
 }
 
@@ -49,20 +48,21 @@
 }
 
 .nav-links a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
-  bottom: -9px;
+  bottom: -8px;
   width: 0%;
   height: 2px;
   background: var(--primary);
   border-radius: 10px;
-  transition: 0.3s;
+  transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
   color: var(--primary);
   background: rgba(249, 145, 22, 0.08);
+  transform: translateY(-2px);
 }
 
 .nav-links a:hover::after {
@@ -73,23 +73,36 @@
   text-decoration: none;
   background: linear-gradient(135deg, var(--primary), #ffb347);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 22px;
   border-radius: 14px;
   font-weight: 800;
   box-shadow: 0 10px 24px rgba(249, 145, 22, 0.28);
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .admin-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(249, 145, 22, 0.38);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 35px rgba(249, 145, 22, 0.38);
 }
 
 .menu-icon {
   display: none;
-  font-size: 30px;
-  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  border: 1px solid rgba(249, 145, 22, 0.18);
+  background: rgba(249, 145, 22, 0.08);
   color: var(--text);
+  font-size: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-icon:hover {
+  background: rgba(249, 145, 22, 0.16);
+  color: var(--primary);
+  transform: rotate(90deg) scale(1.05);
 }
 
 /* Tablet */
@@ -112,54 +125,55 @@
   }
 
   .admin-btn {
-    padding: 9px 16px;
     font-size: 14px;
+    padding: 10px 18px;
   }
 }
 
-
+/* Mobile */
 @media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+    padding: 0 22px;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+
+  .admin-btn {
+    display: none;
+  }
+
   .menu-icon {
     display: block;
   }
 
-  .nav-links.active {
-    display: flex;
-  }
-  .navbar{
-    color: var(--text);
-  }
-}
-
-.menu-icon {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 32px;
-  cursor: pointer;
-  color: var(--text);
-  z-index: 2001;
-  position: relative;
-  padding: 8px;
-  -webkit-tap-highlight-color: transparent;
-}
-
   .nav-links {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-
     display: none;
+    position: absolute;
+    top: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 92%;
     flex-direction: column;
     gap: 10px;
 
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    padding: 16px;
+    border-radius: 26px;
 
-    padding: 20px;
-    box-shadow: 0 15px 35px rgba(23, 38, 77, 0.12);
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+
+    box-shadow:
+      0 25px 60px rgba(23, 38, 77, 0.16),
+      0 8px 25px rgba(249, 145, 22, 0.16);
+
+    animation: menuShow 0.35s ease;
   }
 
   .nav-links.active {
@@ -169,16 +183,34 @@
   .nav-links a {
     width: 100%;
     text-align: center;
-    padding: 15px;
+    padding: 16px;
     font-size: 17px;
+    font-weight: 750;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.55);
   }
 
   .nav-links a::after {
     display: none;
   }
 
+  .nav-links a:hover {
+    color: var(--primary);
+    background: linear-gradient(
+      135deg,
+      rgba(249, 145, 22, 0.16),
+      rgba(255, 179, 71, 0.08)
+    );
+    transform: translateX(8px) scale(1.02);
+    box-shadow: 0 10px 22px rgba(249, 145, 22, 0.13);
+  }
 
+  .nav-links a:active {
+    transform: scale(0.96);
+  }
+}
 
+/* Small mobile */
 @media (max-width: 420px) {
   .navbar {
     padding: 0 16px;
@@ -186,5 +218,22 @@
 
   .logo {
     font-size: 22px;
+  }
+
+  .nav-links {
+    width: 94%;
+  }
+}
+
+/* Animation */
+@keyframes menuShow {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-18px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
   }
 }
