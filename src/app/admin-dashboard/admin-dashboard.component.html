@@ -1,3 +1,42 @@
-<p>
-  admin-dashboard works!
-</p>
+<div class="admin-container">
+
+  <button
+    class="plus-btn"
+    *ngIf="!showCard"
+    (click)="openCard()">
+    +
+  </button>
+
+  <div class="form-card" *ngIf="showCard">
+
+    <h2>Add Course</h2>
+
+    <input
+      type="text"
+      placeholder="Course Name"
+      [(ngModel)]="newCourse.title">
+
+    <input
+      type="file"
+      accept="image/*"
+      (change)="onImageUpload($event)">
+
+    <img
+      *ngIf="newCourse.image"
+      [src]="newCourse.image"
+      class="preview-image">
+
+    <textarea
+      placeholder="Course Description"
+      [(ngModel)]="newCourse.description">
+    </textarea>
+
+    <button
+      class="add-btn"
+      (click)="addCourse()">
+      Add Course
+    </button>
+
+  </div>
+
+</div>
