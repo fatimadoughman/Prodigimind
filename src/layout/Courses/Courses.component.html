@@ -6,6 +6,9 @@
 
 
 </div>
+<div class="explore-link" (click)="openCourse(courses)">
+        Explore More →
+      </div>
 <div class="courses-grid">
   @for (course of courses; track course.title) {
     <div class="course-card" (click)="openCourse(course)">
@@ -23,11 +26,9 @@
         <strong>{{ course.price }}</strong>
       </div>
 
-
+  <button>Enroll Now</button>
 
     </div>
-  }  <div class="explore-link">
-        Explore More →
-      </div>
+  }
 </div>
 </section>

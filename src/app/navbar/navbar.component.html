@@ -11,20 +11,22 @@
 </a> -->
 <!-- <a (click)="scrollTo('courses')" routerLinkActive="active-link" >Courses</a> -->
 <a
-  (click)="scrollTo('home')"
-  [class.active-link]="activeSection === 'home'">
+  routerLink="/homepage"
+  routerLinkActive="active-link"
+  [routerLinkActiveOptions]="{ exact: true }">
   Home
 </a>
 
 <a
-  (click)="scrollTo('courses')"
-  [class.active-link]="activeSection === 'courses'">
+  routerLink="/main-courses"
+  routerLinkActive="active-link">
   Courses
 </a>
 <a  routerLinkActive="active-link" (click)="closeMenu()">Services</a>
 
     <a  routerLinkActive="active-link" (click)="closeMenu()">Projects</a>
-    <a  routerLinkActive="active-link" (click)="closeMenu()">About</a>
+    <a    (click)="scrollTo('about')"
+  [class.active-link]="activeSection === 'About'">About</a>
   </div>
 
   <a routerLink="/admin" class="admin-btn">Contact us</a>

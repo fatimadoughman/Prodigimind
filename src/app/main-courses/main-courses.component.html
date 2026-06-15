@@ -1,3 +1,41 @@
-<p>
-  main-courses works!
-</p>
+<section class="main-courses-page">
+
+  <div class="main-header">
+    <span class="section-tag">OUR COURSES</span>
+    <h1>Explore all available learning projects</h1>
+    <p>Choose a project and start building real skills with ProdigiMind.</p>
+  </div>
+
+  <div class="main-grid">
+    @for (course of courses; track course.projectName) {
+      <div class="main-card">
+
+        @if (course.image) {
+          <img
+            [src]="course.image"
+            class="course-icon-img"
+            title="{{ course.projectName }} Image">
+        } @else {
+          <div class="course-icon-box">📚</div>
+        }
+
+        <span class="course-major">{{ course.major }}</span>
+
+        <h3>{{ course.projectName }}</h3>
+
+        <p>{{ course.description }}</p>
+
+        <div class="course-info">
+          <span>{{ course.duration || '4 weeks' }}</span>
+          <strong>{{ course.fees }}</strong>
+        </div>
+
+        <button class="enroll-btn" (click)="enroll(course)">
+          Enroll Now →
+        </button>
+
+      </div>
+    }
+  </div>
+
+</section>

@@ -1,42 +1,119 @@
-<!-- <div class="admin-container">
+<div class="admin-page">
 
-  <button
-    class="plus-btn"
-    *ngIf="!showCard"
-    (click)="openCard()">
-    +
-  </button>
+  <div class="admin-hero">
+    <div>
+      <span class="admin-tag">ADMIN DASHBOARD</span>
+      <h1>Manage your projects</h1>
+      <p>Add projects with major, photo, description, fees, and project name.</p>
+    </div>
 
-  <div class="form-card" *ngIf="showCard">
-
-    <h2>Add Course</h2>
-
-    <input
-      type="text"
-      placeholder="Course Name"
-      [(ngModel)]="newCourse.title">
-
-    <input
-      type="file"
-      accept="image/*"
-      (change)="onImageUpload($event)">
-
-    <img
-      *ngIf="newCourse.image"
-      [src]="newCourse.image"
-      class="preview-image">
-
-    <textarea
-      placeholder="Course Description"
-      [(ngModel)]="newCourse.description">
-    </textarea>
-
-    <button
-      class="add-btn"
-      (click)="addCourse()">
-      Add Course
+    <button class="hero-btn" (click)="openCard()">
+      Add New Course
+      <span>＋</span>
     </button>
-
   </div>
 
-</div> -->
+  @if (showCard) {
+    <div class="form-card">
+
+      <div class="form-header">
+        <div>
+          <span class="small-tag">
+            {{ editingIndex !== null ? 'EDIT PROJECT' : 'NEW PROJECT' }}
+          </span>
+
+          <h2>
+            {{ editingIndex !== null ? 'Edit Project' : 'Add Project' }}
+          </h2>
+        </div>
+
+        <button class="close-btn" (click)="showCard = false">✕</button>
+      </div>
+
+      <label>Project Name</label>
+      <input
+        type="text"
+        placeholder="Example: Villa Design Project"
+        [(ngModel)]="newCourse.projectName">
+
+      <label>Major</label>
+      <input
+        type="text"
+        placeholder="Example: Architecture"
+        [(ngModel)]="newCourse.major">
+
+      <label>Project Photo</label>
+      <label class="upload-box">
+        <input
+          #fileInput
+          type="file"
+          accept="image/*"
+          (change)="onImageUpload($event)">
+        <span>Upload project photo</span>
+      </label>
+
+      @if (newCourse.image) {
+        <img
+          [src]="newCourse.image"
+          class="preview-image"
+          title="Project Image Preview">
+      }
+
+      <label>Description</label>
+      <textarea
+        placeholder="Write a short project description..."
+        [(ngModel)]="newCourse.description">
+      </textarea>
+
+      <label>Fees</label>
+      <input
+        type="text"
+        placeholder="Example: $50"
+        [(ngModel)]="newCourse.fees">
+
+      <button class="add-btn" (click)="addCourse()">
+        {{ editingIndex !== null ? 'Save Changes →' : 'Publish Project →' }}
+      </button>
+
+    </div>
+  }
+
+  @if (courses.length > 0) {
+    <div class="courses-list">
+
+      <h2>Saved Projects</h2>
+
+      <div class="saved-grid">
+        @for (course of courses; track course.projectName; let i = $index) {
+          <div class="saved-card">
+
+            @if (course.image) {
+              <img
+                [src]="course.image"
+                title="{{ course.projectName }} Image"
+                class="saved-image">
+            }
+
+            <div class="saved-content">
+              <span class="saved-major">{{ course.major }}</span>
+
+              <h3>{{ course.projectName }}</h3>
+
+              <p>{{ course.description }}</p>
+
+              <strong class="saved-fees">{{ course.fees }}</strong>
+
+              <div class="card-actions">
+                <button class="edit-btn" (click)="editCourse(i)">Edit</button>
+                <button class="delete-btn" (click)="deleteCourse(i)">Delete</button>
+              </div>
+            </div>
+
+          </div>
+        }
+      </div>
+
+    </div>
+  }
+
+</div>
