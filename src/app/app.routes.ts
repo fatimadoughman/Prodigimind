@@ -4,7 +4,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { HomepageComponent } from '../layout/homepage/homepage.component';
 import { LayoutComponent } from '../layout/layout.component';
 import { CoursesComponent } from '../layout/Courses/Courses.component';
-import { AboutComponent } from './About/About.component';
+import { AboutComponent } from './about/About.component';
 export const routes: Routes = [
 {
   path: 'admin-login',
