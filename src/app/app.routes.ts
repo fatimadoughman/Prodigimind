@@ -4,6 +4,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { HomepageComponent } from '../layout/homepage/homepage.component';
 import { LayoutComponent } from '../layout/layout.component';
 import { CoursesComponent } from '../layout/Courses/Courses.component';
+import { AboutComponent } from './About/About.component';
 export const routes: Routes = [
 {
   path: 'admin-login',
@@ -13,6 +14,11 @@ export const routes: Routes = [
   path: 'admin-dashboard',
   component: AdminDashboardComponent
 },
+{
+  path: 'about',
+  component: AboutComponent
+},
+
 
  {
     path: '',
@@ -26,5 +32,6 @@ export const routes: Routes = [
         path: 'courses',
         component: CoursesComponent
       }
-    ]}
+    ]},
+    { path: '', redirectTo: 'homepage', pathMatch: 'full' },
 ];
