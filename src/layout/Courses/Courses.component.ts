@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-courses',
   standalone: true,
@@ -35,4 +35,11 @@ export class CoursesComponent {
       icon: '🎨'
     }
   ];
+
+
+constructor(private router: Router) {}
+
+openCourse(course: any) {
+  this.router.navigate(['/main-courses']);
+}
 }

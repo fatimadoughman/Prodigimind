@@ -6,25 +6,28 @@
 
 
 </div>
+<div class="courses-grid">
+  @for (course of courses; track course.title) {
+    <div class="course-card" (click)="openCourse(course)">
 
-  <div class="courses-grid">
-    @for (course of courses; track course.title) {
-      <div class="course-card">
-        <div class="course-icon">{{ course.icon }}</div>
+      <div class="course-icon">{{ course.icon }}</div>
 
-        <span class="course-category">{{ course.category }}</span>
+      <span class="course-category">{{ course.category }}</span>
 
-        <h3>{{ course.title }}</h3>
+      <h3>{{ course.title }}</h3>
 
-        <p>{{ course.description }}</p>
+      <p>{{ course.description }}</p>
 
-        <div class="course-info">
-          <span>{{ course.duration }}</span>
-          <strong>{{ course.price }}</strong>
-        </div>
-
-        <button>Enroll Now</button>
+      <div class="course-info">
+        <span>{{ course.duration }}</span>
+        <strong>{{ course.price }}</strong>
       </div>
-    }
-  </div>
+
+
+
+    </div>
+  }  <div class="explore-link">
+        Explore More →
+      </div>
+</div>
 </section>

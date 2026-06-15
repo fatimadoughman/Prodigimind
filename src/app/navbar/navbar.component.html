@@ -2,15 +2,26 @@
   <div class="logo">ProdigiMind</div>
 
   <div class="nav-links" [class.active]="menuOpen">
-    <a
+    <!-- <a
   routerLink="/homepage"
   routerLinkActive="active-link"
   [routerLinkActiveOptions]="{ exact: true }"
-  (click)="closeMenu()">
+  (click)="scrollTo('home')">
+  Home
+</a> -->
+<!-- <a (click)="scrollTo('courses')" routerLinkActive="active-link" >Courses</a> -->
+<a
+  (click)="scrollTo('home')"
+  [class.active-link]="activeSection === 'home'">
   Home
 </a>
-    <a routerLink="/courses" routerLinkActive="active-link" (click)="closeMenu()" (click)="scrollToCourses()">Courses</a>
-    <a  routerLinkActive="active-link" (click)="closeMenu()">Services</a>
+
+<a
+  (click)="scrollTo('courses')"
+  [class.active-link]="activeSection === 'courses'">
+  Courses
+</a>
+<a  routerLinkActive="active-link" (click)="closeMenu()">Services</a>
 
     <a  routerLinkActive="active-link" (click)="closeMenu()">Projects</a>
     <a  routerLinkActive="active-link" (click)="closeMenu()">About</a>

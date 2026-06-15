@@ -5,25 +5,29 @@ import { HomepageComponent } from '../layout/homepage/homepage.component';
 import { LayoutComponent } from '../layout/layout.component';
 import { CoursesComponent } from '../layout/Courses/Courses.component';
 import { AboutComponent } from './About/About.component';
+import { MainCoursesComponent } from './main-courses/main-courses.component';
 export const routes: Routes = [
-{
-  path: 'admin-login',
-  component: AdminLogin
-},
-{
-  path: 'admin-dashboard',
-  component: AdminDashboardComponent
-},
-{
-  path: 'about',
-  component: AboutComponent
-},
-
-
- {
+  {
+    path: 'admin-login',
+    component: AdminLogin
+  },
+  {
+    path: 'admin-dashboard',
+    component: AdminDashboardComponent
+  },
+    {
+    path: 'main-courses',
+    component: MainCoursesComponent
+  },
+  {
     path: '',
     component: LayoutComponent,
     children: [
+      {
+        path: '',
+        redirectTo: 'homepage',
+        pathMatch: 'full'
+      },
       {
         path: 'homepage',
         component: HomepageComponent
@@ -32,6 +36,6 @@ export const routes: Routes = [
         path: 'courses',
         component: CoursesComponent
       }
-    ]},
-    { path: '', redirectTo: 'homepage', pathMatch: 'full' },
+    ]
+  }
 ];

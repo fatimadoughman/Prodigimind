@@ -27,5 +27,16 @@ scrollToCourses() {
     behavior: 'smooth'
   });
 }
+activeSection = 'home';
 
+scrollTo(sectionId: string) {
+  this.activeSection = sectionId;
+
+  document.getElementById(sectionId)?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+
+  this.closeMenu();
+}
 }

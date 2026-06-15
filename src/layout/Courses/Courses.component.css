@@ -193,4 +193,17 @@
   .courses-header h1 {
     font-size: 34px;
   }
+  .explore-link {
+  margin-top: 18px;
+  color: #f99116;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+}
+
+.course-card:hover .explore-link {
+  transform: translateX(6px);
+}
 }
