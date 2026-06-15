@@ -19,6 +19,10 @@ export const routes: Routes = [
     path: 'main-courses',
     component: MainCoursesComponent
   },
+     {
+    path: 'about',
+    component: AboutComponent
+  },
   {
     path: '',
     component: LayoutComponent,
