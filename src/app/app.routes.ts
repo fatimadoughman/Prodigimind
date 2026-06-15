@@ -4,8 +4,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { HomepageComponent } from '../layout/homepage/homepage.component';
 import { LayoutComponent } from '../layout/layout.component';
 import { CoursesComponent } from '../layout/Courses/Courses.component';
-import { AboutComponent } from './About/About.component';
+import { AboutComponent } from './about/About.component';
 import { MainCoursesComponent } from './main-courses/main-courses.component';
+import { ProjectsComponent } from './projects/projects';
 export const routes: Routes = [
   {
     path: 'admin-login',
@@ -14,6 +15,9 @@ export const routes: Routes = [
   {
     path: 'admin-dashboard',
     component: AdminDashboardComponent
+  },{
+    path: 'projects',
+    component:ProjectsComponent
   },
     {
     path: 'main-courses',

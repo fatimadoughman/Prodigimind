@@ -1,0 +1,145 @@
+<section class="project-page">
+
+  <div class="title-card">
+    <h1>Projects Guide</h1>
+    <p>Fill in your project details and our team will contact you.</p>
+  </div>
+
+  <div class="project-card">
+
+    <form #projectForm="ngForm"
+          (ngSubmit)="submitProject(projectForm)">
+
+      <!-- Name -->
+      <input
+        type="text"
+        name="name"
+        placeholder="Full Name"
+        [(ngModel)]="project.name"
+        #name="ngModel"
+        required>
+
+      <p class="error"
+         *ngIf="name.invalid && name.touched">
+         Full Name is required.
+      </p>
+
+      <!-- Email -->
+      <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        [(ngModel)]="project.email"
+        #email="ngModel"
+        required
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+
+      <p class="error"
+         *ngIf="email.errors?.['required'] && email.touched">
+         Email is required.
+      </p>
+
+      <p class="error"
+         *ngIf="email.errors?.['pattern'] && email.touched">
+         Your email is invalid.
+      </p>
+
+      <!-- Phone -->
+      <input
+        type="text"
+        name="phone"
+        placeholder="Phone Number"
+        [(ngModel)]="project.phone"
+        #phone="ngModel"
+        required
+        pattern="^[0-9]+$"
+        (input)="onlyNumbers($event)">
+
+      <p class="error"
+         *ngIf="phone.errors?.['required'] && phone.touched">
+         Phone number is required.
+      </p>
+
+      <p class="error"
+         *ngIf="phone.errors?.['pattern'] && phone.touched">
+         Phone number must contain numbers only.
+      </p>
+
+      <!-- University -->
+      <input
+        type="text"
+        name="university"
+        placeholder="University"
+        [(ngModel)]="project.university"
+        #university="ngModel"
+        required>
+
+      <p class="error"
+         *ngIf="university.invalid && university.touched">
+         University is required.
+      </p>
+
+      <!-- Major -->
+      <input
+        type="text"
+        name="major"
+        placeholder="Major"
+        [(ngModel)]="project.major"
+        #major="ngModel"
+        required>
+
+      <p class="error"
+         *ngIf="major.invalid && major.touched">
+         Major is required.
+      </p>
+
+      <!-- Year -->
+      <input
+        type="text"
+        name="year"
+        placeholder="Academic Year"
+        [(ngModel)]="project.year"
+        #year="ngModel"
+        required>
+
+      <p class="error"
+         *ngIf="year.invalid && year.touched">
+         Academic Year is required.
+      </p>
+
+      <!-- Deadline -->
+      <input
+        type="date"
+        name="deadline"
+        [(ngModel)]="project.deadline"
+        #deadline="ngModel"
+        required>
+
+      <p class="error"
+         *ngIf="deadline.invalid && deadline.touched">
+         Deadline is required.
+      </p>
+
+      <!-- Description -->
+      <textarea
+        name="description"
+        placeholder="Project Description"
+        [(ngModel)]="project.description"
+        #description="ngModel"
+        required>
+      </textarea>
+
+      <p class="error"
+         *ngIf="description.invalid && description.touched">
+         Description is required.
+      </p>
+
+      <button type="submit">
+        Submit Project
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
