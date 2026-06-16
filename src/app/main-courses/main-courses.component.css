@@ -1,6 +1,6 @@
 .main-courses-page {
   min-height: 100vh;
-  padding: 110px 70px;
+  padding: 30px 70px;
   background:
     radial-gradient(circle at top left, rgba(249, 145, 22, 0.18), transparent 32%),
     linear-gradient(180deg, #ffffff, #f9f8f8);
@@ -153,4 +153,153 @@
   .main-header h1 {
     font-size: 34px;
   }
+}
+/* SECTION SPACING */
+.category-section {
+  margin-top: 70px;
+}
+
+.exams-section {
+  margin-top: 90px;
+}
+
+/* SECTION TITLES */
+.category-section h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 35px;
+  font-size: 34px;
+  font-weight: 900;
+  color: #17264d;
+}
+
+.category-section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 70px;
+  height: 4px;
+  border-radius: 10px;
+  background: #f99116;
+}
+
+/* SECTION CONTAINER */
+.category-section {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CARD HOVER EFFECT */
+.main-card {
+  transition: all 0.35s ease;
+}
+
+.main-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.08),
+    0 8px 20px rgba(249, 145, 22, 0.12);
+}
+
+/* COURSE IMAGE */
+.course-icon-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 18px;
+}
+
+/* COURSE MAJOR */
+.course-major {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: 50px;
+  background: rgba(249, 145, 22, 0.12);
+  color: #f99116;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+/* INFO BAR */
+.course-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  margin-bottom: 20px;
+  color: #667085;
+  font-size: 14px;
+}
+
+.course-info strong {
+  color: #17264d;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* BUTTON */
+.enroll-btn {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  background: #f99116;
+  color: white;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.enroll-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(249, 145, 22, 0.3);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .category-section {
+    margin-top: 50px;
+  }
+
+  .exams-section {
+    margin-top: 60px;
+  }
+
+  .category-section h2 {
+    font-size: 28px;
+  }
+
+  .course-icon-img {
+    height: 180px;
+  }
+}
+.course-filters {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 35px 0 50px;
+  flex-wrap: wrap;
+}
+
+.course-filters input,
+.course-filters select {
+  width: 280px;
+  padding: 15px 18px;
+  border-radius: 16px;
+  border: none;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  font-size: 15px;
+}
+
+.course-filters input:focus,
+.course-filters select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(249, 145, 22, 0.22);
 }

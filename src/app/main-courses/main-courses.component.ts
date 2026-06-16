@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CourseService } from '../services/course';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-main-courses',
   standalone: true,
-  imports: [],
+  imports:  [FormsModule],
   templateUrl: './main-courses.component.html',
   styleUrls: ['./main-courses.component.css']
 })
@@ -33,5 +34,21 @@ Please send me more details.`;
     `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   window.open(url, '_blank');
+}
+searchText = '';
+selectedMajor = 'All';
+
+get filteredCourses() {
+  return this.courses.filter(course => {
+    const matchesSearch =
+      course.projectName.toLowerCase().includes(this.searchText.toLowerCase()) ||
+      course.description.toLowerCase().includes(this.searchText.toLowerCase());
+
+    const matchesMajor =
+      this.selectedMajor === 'All' ||
+      course.major === this.selectedMajor;
+
+    return matchesSearch && matchesMajor;
+  });
 }
 }

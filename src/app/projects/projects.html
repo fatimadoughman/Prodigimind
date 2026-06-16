@@ -1,141 +1,173 @@
 <section class="project-page">
 
-  <div class="title-card">
-    <h1>Projects Guide</h1>
-    <p>Fill in your project details and our team will contact you.</p>
+  <div class="project-header">
+    <span>PROJECT SUPPORT</span>
+    <h1>Need help with your project?</h1>
+    <p>
+      From planning and research to implementation and presentation,
+      our experts help you deliver outstanding results.
+    </p>
+  </div>
+
+  <div class="service-cards">
+    <div class="service-card">
+      <div>🎓</div>
+      <h4>Academic Projects</h4>
+    </div>
+
+    <div class="service-card">
+      <div>💻</div>
+      <h4>Programming Projects</h4>
+    </div>
+
+    <div class="service-card">
+      <div>🏗️</div>
+      <h4>Engineering Projects</h4>
+    </div>
   </div>
 
   <div class="project-card">
 
-    <form #projectForm="ngForm"
-          (ngSubmit)="submitProject(projectForm)">
+    <form #projectForm="ngForm" (ngSubmit)="submitProject(projectForm)" novalidate>
 
-      <!-- Name -->
-      <input
-        type="text"
-        name="name"
-        placeholder="Full Name"
-        [(ngModel)]="project.name"
-        #name="ngModel"
-        required>
+      <div class="form-grid">
 
-      <p class="error"
-         *ngIf="name.invalid && name.touched">
-         Full Name is required.
-      </p>
+        <div class="form-group">
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            [(ngModel)]="project.name"
+            #name="ngModel"
+            required
+            minlength="3"
+          >
+          @if (showError(name)) {
+            <small>Full name must be at least 3 characters.</small>
+          }
+        </div>
 
-      <!-- Email -->
-      <input
-        type="email"
-        name="email"
-        placeholder="Email Address"
-        [(ngModel)]="project.email"
-        #email="ngModel"
-        required
-        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+        <div class="form-group">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            [(ngModel)]="project.email"
+            #email="ngModel"
+            required
+            email
+          >
+          @if (showError(email)) {
+            <small>Please enter a valid email address.</small>
+          }
+        </div>
 
-      <p class="error"
-         *ngIf="email.errors?.['required'] && email.touched">
-         Email is required.
-      </p>
+        <div class="form-group">
+          <input
+            type="text"
+            name="phone"
+            placeholder="Phone Number"
+            [(ngModel)]="project.phone"
+            #phone="ngModel"
+            required
+            minlength="8"
+            maxlength="15"
+            pattern="^[0-9]+$"
+            (input)="onlyNumbers($event)"
+          >
+          @if (showError(phone)) {
+            <small>Phone number must contain 8 to 15 digits only.</small>
+          }
+        </div>
 
-      <p class="error"
-         *ngIf="email.errors?.['pattern'] && email.touched">
-         Your email is invalid.
-      </p>
+        <div class="form-group">
+          <input
+            type="text"
+            name="university"
+            placeholder="University"
+            [(ngModel)]="project.university"
+            #university="ngModel"
+            required
+            minlength="2"
+          >
+          @if (showError(university)) {
+            <small>University name is required.</small>
+          }
+        </div>
 
-      <!-- Phone -->
-      <input
-        type="text"
-        name="phone"
-        placeholder="Phone Number"
-        [(ngModel)]="project.phone"
-        #phone="ngModel"
-        required
-        pattern="^[0-9]+$"
-        (input)="onlyNumbers($event)">
+        <div class="form-group">
+          <input
+            type="text"
+            name="major"
+            placeholder="Major"
+            [(ngModel)]="project.major"
+            #major="ngModel"
+            required
+            minlength="2"
+          >
+          @if (showError(major)) {
+            <small>Major is required.</small>
+          }
+        </div>
 
-      <p class="error"
-         *ngIf="phone.errors?.['required'] && phone.touched">
-         Phone number is required.
-      </p>
+        <div class="form-group">
+          <input
+            type="text"
+            name="year"
+            placeholder="Academic Year"
+            [(ngModel)]="project.year"
+            #year="ngModel"
+            required
+          >
+          @if (showError(year)) {
+            <small>Academic year is required.</small>
+          }
+        </div>
 
-      <p class="error"
-         *ngIf="phone.errors?.['pattern'] && phone.touched">
-         Phone number must contain numbers only.
-      </p>
+        <div class="form-group">
+          <input
+            type="date"
+            name="deadline"
+            [(ngModel)]="project.deadline"
+            #deadline="ngModel"
+            required
+          >
+          @if (showError(deadline)) {
+            <small>Please choose a deadline.</small>
+          }
+        </div>
 
-      <!-- University -->
-      <input
-        type="text"
-        name="university"
-        placeholder="University"
-        [(ngModel)]="project.university"
-        #university="ngModel"
-        required>
+      </div>
 
-      <p class="error"
-         *ngIf="university.invalid && university.touched">
-         University is required.
-      </p>
+      <div class="form-group full">
+        <textarea
+          name="description"
+          placeholder="Describe your project..."
+          [(ngModel)]="project.description"
+          #description="ngModel"
+          required
+          minlength="20">
+        </textarea>
 
-      <!-- Major -->
-      <input
-        type="text"
-        name="major"
-        placeholder="Major"
-        [(ngModel)]="project.major"
-        #major="ngModel"
-        required>
+        @if (showError(description)) {
+          <small>Description must be at least 20 characters.</small>
+        }
+      </div>
 
-      <p class="error"
-         *ngIf="major.invalid && major.touched">
-         Major is required.
-      </p>
+      @if (errorMessage) {
+        <div class="error-box">
+          {{ errorMessage }}
+        </div>
+      }
 
-      <!-- Year -->
-      <input
-        type="text"
-        name="year"
-        placeholder="Academic Year"
-        [(ngModel)]="project.year"
-        #year="ngModel"
-        required>
+      @if (successMessage) {
+        <div class="success-box">
+          {{ successMessage }}
+        </div>
+      }
 
-      <p class="error"
-         *ngIf="year.invalid && year.touched">
-         Academic Year is required.
-      </p>
-
-      <!-- Deadline -->
-      <input
-        type="date"
-        name="deadline"
-        [(ngModel)]="project.deadline"
-        #deadline="ngModel"
-        required>
-
-      <p class="error"
-         *ngIf="deadline.invalid && deadline.touched">
-         Deadline is required.
-      </p>
-
-      <!-- Description -->
-      <textarea
-        name="description"
-        placeholder="Project Description"
-        [(ngModel)]="project.description"
-        #description="ngModel"
-        required>
-      </textarea>
-
-      <p class="error"
-         *ngIf="description.invalid && description.touched">
-         Description is required.
-      </p>
-
-      <button type="submit">
-        Submit Project
+      <button type="submit" [disabled]="isLoading">
+        {{ isLoading ? 'Submitting...' : 'Submit Project →' }}
       </button>
 
     </form>

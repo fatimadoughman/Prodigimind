@@ -3,12 +3,12 @@
   <div class="admin-hero">
     <div>
       <span class="admin-tag">ADMIN DASHBOARD</span>
-      <h1>Manage your projects</h1>
-      <p>Add projects with major, photo, description, fees, and project name.</p>
+      <h1>Manage your services</h1>
+      <p>Add projects, courses, and international exam preparation services.</p>
     </div>
 
     <button class="hero-btn" (click)="openCard()">
-      Add New Course
+      Add New Item
       <span>＋</span>
     </button>
   </div>
@@ -19,49 +19,56 @@
       <div class="form-header">
         <div>
           <span class="small-tag">
-            {{ editingIndex !== null ? 'EDIT PROJECT' : 'NEW PROJECT' }}
+            {{ editingIndex !== null ? 'EDIT ITEM' : 'NEW ITEM' }}
           </span>
 
           <h2>
-            {{ editingIndex !== null ? 'Edit Project' : 'Add Project' }}
+            {{ editingIndex !== null ? 'Edit Item' : 'Add Item' }}
           </h2>
         </div>
 
         <button class="close-btn" (click)="showCard = false">✕</button>
       </div>
 
-      <label>Project Name</label>
+      <label>Category</label>
+      <select [(ngModel)]="newCourse.category" title="Select Category">
+        <option value="Project">Project</option>
+        <option value="Course">Course</option>
+        <option value="International Exam">International Exam</option>
+      </select>
+
+      <label>Name</label>
       <input
         type="text"
-        placeholder="Example: Villa Design Project"
+        placeholder="Example: IELTS Preparation / Villa Design Project"
         [(ngModel)]="newCourse.projectName">
 
-      <label>Major</label>
+      <label>Major / Field</label>
       <input
         type="text"
-        placeholder="Example: Architecture"
+        placeholder="Example: Architecture / English / Engineering"
         [(ngModel)]="newCourse.major">
 
-      <label>Project Photo</label>
+      <label>Photo</label>
       <label class="upload-box">
         <input
           #fileInput
           type="file"
           accept="image/*"
           (change)="onImageUpload($event)">
-        <span>Upload project photo</span>
+        <span>Upload photo</span>
       </label>
 
       @if (newCourse.image) {
         <img
           [src]="newCourse.image"
           class="preview-image"
-          title="Project Image Preview">
+          title="Image Preview">
       }
 
       <label>Description</label>
       <textarea
-        placeholder="Write a short project description..."
+        placeholder="Write a short description..."
         [(ngModel)]="newCourse.description">
       </textarea>
 
@@ -72,7 +79,7 @@
         [(ngModel)]="newCourse.fees">
 
       <button class="add-btn" (click)="addCourse()">
-        {{ editingIndex !== null ? 'Save Changes →' : 'Publish Project →' }}
+        {{ editingIndex !== null ? 'Save Changes →' : 'Publish Item →' }}
       </button>
 
     </div>
@@ -81,7 +88,7 @@
   @if (courses.length > 0) {
     <div class="courses-list">
 
-      <h2>Saved Projects</h2>
+      <h2>Saved Items</h2>
 
       <div class="saved-grid">
         @for (course of courses; track course.projectName; let i = $index) {
@@ -95,6 +102,7 @@
             }
 
             <div class="saved-content">
+              <span class="saved-category">{{ course.category }}</span>
               <span class="saved-major">{{ course.major }}</span>
 
               <h3>{{ course.projectName }}</h3>

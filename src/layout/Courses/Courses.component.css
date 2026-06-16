@@ -81,9 +81,17 @@
   transition: all 0.35s ease;
   overflow: hidden;
   cursor: pointer;
-   display: flex;
+  display: flex;
   flex-direction: column;
+  min-height: 400px;
+}
 
+.course-card p {
+  flex: 1;
+}
+
+.course-info {
+  margin-top: auto;
 }
 
 .course-card::before {

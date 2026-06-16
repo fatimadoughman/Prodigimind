@@ -69,7 +69,7 @@
   width: 100%;
 }
 
-.admin-btn {
+.contact-btn {
   text-decoration: none;
   background: linear-gradient(135deg, var(--primary), #ffb347);
   color: white;
@@ -80,7 +80,7 @@
   transition: all 0.3s ease;
 }
 
-.admin-btn:hover {
+.contact-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 35px rgba(249, 145, 22, 0.38);
 }

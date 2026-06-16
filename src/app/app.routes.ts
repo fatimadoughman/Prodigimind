@@ -4,9 +4,11 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { HomepageComponent } from '../layout/homepage/homepage.component';
 import { LayoutComponent } from '../layout/layout.component';
 import { CoursesComponent } from '../layout/Courses/Courses.component';
-import { AboutComponent } from './about/About.component';
+import { AboutComponent } from './About/About.component';
 import { MainCoursesComponent } from './main-courses/main-courses.component';
 import { ProjectsComponent } from './projects/projects';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ServicessComponent } from './servicess/servicess.component';
 export const routes: Routes = [
   {
     path: 'admin-login',
@@ -19,6 +21,10 @@ export const routes: Routes = [
     path: 'projects',
     component:ProjectsComponent
   },
+   {
+    path: 'servicess',
+    component: ServicessComponent
+  },
     {
     path: 'main-courses',
     component: MainCoursesComponent
@@ -26,6 +32,10 @@ export const routes: Routes = [
      {
     path: 'about',
     component: AboutComponent
+  },
+    {
+    path: 'contact-us',
+    component: ContactUsComponent
   },
   {
     path: '',

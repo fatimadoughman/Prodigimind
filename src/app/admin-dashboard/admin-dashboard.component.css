@@ -251,7 +251,7 @@
 .saved-major {
   display: inline-block;
   margin-bottom: 12px;
-  color: #f99116;
+  color: #030421;
   font-weight: 900;
 }
 
@@ -260,4 +260,23 @@
   margin-top: 14px;
   color: #17264d;
   font-size: 22px;
+}
+select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 15px;
+}
+
+.saved-category {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background: rgba(249, 145, 22, 0.13);
+  color: #f99116;
+  font-size: 12px;
+  font-weight: 900;
 }

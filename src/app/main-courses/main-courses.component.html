@@ -1,41 +1,104 @@
 <section class="main-courses-page">
 
   <div class="main-header">
-    <span class="section-tag">OUR COURSES</span>
-    <h1>Explore all available learning projects</h1>
-    <p>Choose a project and start building real skills with ProdigiMind.</p>
+    <span class="section-tag">OUR SERVICES</span>
+    <h1>Explore courses and international exams</h1>
+    <p>Choose what you need and start building real skills with ProdigiMind.</p>
+  </div>
+<div class="course-filters">
+
+  <input
+    type="text"
+    placeholder="Search by course name..."
+    [(ngModel)]="searchText"
+  >
+
+  <select [(ngModel)]="selectedMajor" title="Filter by Major">
+    <option value="All">All Majors</option>
+    <option value="Computer Science">Computer Science</option>
+    <option value="Engineering">Engineering</option>
+    <option value="Business">Business</option>
+    <option value="Architecture">Architecture</option>
+    <option value="Languages">Languages</option>
+  </select>
+
+</div>
+  <!-- COURSES PART -->
+  <div class="category-section">
+    <h2>Courses</h2>
+
+    <div class="main-grid">
+  @for (course of filteredCourses; track course.projectName)  {
+        @if (course.category === 'Course') {
+          <div class="main-card">
+
+            @if (course.image) {
+              <img
+                [src]="course.image"
+                class="course-icon-img"
+                title="{{ course.projectName }} Image">
+            } @else {
+              <div class="course-icon-box">📚</div>
+            }
+
+            <span class="course-major">{{ course.major }}</span>
+
+            <h3>{{ course.projectName }}</h3>
+
+            <p>{{ course.description }}</p>
+
+            <div class="course-info">
+              <span>{{ course.duration || '4 weeks' }}</span>
+              <strong>{{ course.fees }}</strong>
+            </div>
+
+            <button class="enroll-btn" (click)="enroll(course)">
+              Enroll Now →
+            </button>
+
+          </div>
+        }
+      }
+    </div>
   </div>
 
-  <div class="main-grid">
-    @for (course of courses; track course.projectName) {
-      <div class="main-card">
+  <!-- INTERNATIONAL EXAMS PART -->
+  <div class="category-section exams-section">
+    <h2>International Exams</h2>
 
-        @if (course.image) {
-          <img
-            [src]="course.image"
-            class="course-icon-img"
-            title="{{ course.projectName }} Image">
-        } @else {
-          <div class="course-icon-box">📚</div>
+    <div class="main-grid">
+      @for (course of courses; track course.projectName) {
+        @if (course.category === 'International Exam') {
+          <div class="main-card">
+
+            @if (course.image) {
+              <img
+                [src]="course.image"
+                class="course-icon-img"
+                title="{{ course.projectName }} Image">
+            } @else {
+              <div class="course-icon-box">🌍</div>
+            }
+
+            <span class="course-major">{{ course.major }}</span>
+
+            <h3>{{ course.projectName }}</h3>
+
+            <p>{{ course.description }}</p>
+
+            <div class="course-info">
+              <span>{{ course.duration || 'Flexible' }}</span>
+              <strong>{{ course.fees }}</strong>
+            </div>
+
+            <button class="enroll-btn" (click)="enroll(course)">
+              Register Now →
+            </button>
+
+          </div>
         }
-
-        <span class="course-major">{{ course.major }}</span>
-
-        <h3>{{ course.projectName }}</h3>
-
-        <p>{{ course.description }}</p>
-
-        <div class="course-info">
-          <span>{{ course.duration || '4 weeks' }}</span>
-          <strong>{{ course.fees }}</strong>
-        </div>
-
-        <button class="enroll-btn" (click)="enroll(course)">
-          Enroll Now →
-        </button>
-
-      </div>
-    }
+      }
+    </div>
   </div>
 
 </section>

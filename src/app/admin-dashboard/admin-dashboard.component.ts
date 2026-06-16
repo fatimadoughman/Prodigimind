@@ -23,7 +23,7 @@ export class AdminDashboardComponent {
     projectName: '',
     major: '',
     image: '',
-    description: '',
+    description: '',  category: 'Project',
     fees: ''
   };
 
@@ -65,7 +65,8 @@ export class AdminDashboardComponent {
       major: '',
       image: '',
       description: '',
-      fees: ''
+      fees: '',
+      category: 'Project'
     };
 
     if (this.fileInput) {
