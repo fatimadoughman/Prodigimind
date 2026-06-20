@@ -25,10 +25,11 @@ export const routes: Routes = [
     path: 'servicess',
     component: ServicessComponent
   },
-    {
-    path: 'main-courses',
-    component: MainCoursesComponent
-  },
+ {
+  path: 'main-courses',
+  loadComponent: () =>
+    import('./main-courses/main-courses.component').then(m => m.MainCoursesComponent)
+},
      {
     path: 'about',
     component: AboutComponent
