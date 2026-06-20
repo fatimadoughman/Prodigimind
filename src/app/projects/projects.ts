@@ -50,8 +50,8 @@ export class ProjectsComponent {
     this.isLoading = true;
 
     emailjs.send(
-      'service_pqx81d8',
-      'template_81qb4yr',
+      'service_1vndwvm',
+      'template_e5a4icb',
       {
         name: this.project.name,
         email: this.project.email,
@@ -62,7 +62,7 @@ export class ProjectsComponent {
         deadline: this.project.deadline,
         description: this.project.description
       },
-      'y7aOn5_MwXcoPmdNj'
+      'jvNxfnKJudM16k3ZB'
     )
     .then(() => {
       this.successMessage = 'Project submitted successfully!';
