@@ -27,8 +27,7 @@ export const routes: Routes = [
   },
  {
   path: 'main-courses',
-  loadComponent: () =>
-    import('./main-courses/main-courses.component').then(m => m.MainCoursesComponent)
+  component: MainCoursesComponent
 },
      {
     path: 'about',

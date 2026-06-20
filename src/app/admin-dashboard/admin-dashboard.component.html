@@ -18,13 +18,15 @@
 
       <div class="form-header">
         <div>
+
           <span class="small-tag">
-            {{ editingIndex !== null ? 'EDIT ITEM' : 'NEW ITEM' }}
+            {{ editingId ? 'EDIT ITEM' : 'NEW ITEM' }}
           </span>
 
           <h2>
-            {{ editingIndex !== null ? 'Edit Item' : 'Add Item' }}
+            {{ editingId ? 'Edit Item' : 'Add Item' }}
           </h2>
+
         </div>
 
         <button class="close-btn" (click)="showCard = false">✕</button>
@@ -55,7 +57,7 @@
           #fileInput
           type="file"
           accept="image/*"
-          (change)="onImageUpload($event)">
+          (change)="onImageUpload($event)" >
         <span>Upload photo</span>
       </label>
 
@@ -78,50 +80,82 @@
         placeholder="Example: $50"
         [(ngModel)]="newCourse.fees">
 
-      <button class="add-btn" (click)="addCourse()">
-        {{ editingIndex !== null ? 'Save Changes →' : 'Publish Item →' }}
+      <label>Duration</label>
+      <input
+        type="text"
+        placeholder="Example: 4 Weeks"
+        [(ngModel)]="newCourse.duration">
+
+      <button
+        class="add-btn"
+        (click)="publishCourse()">
+
+        {{ editingId ? 'Save Changes →' : 'Publish Item →' }}
+
       </button>
 
     </div>
   }
 
   @if (courses.length > 0) {
+
     <div class="courses-list">
 
       <h2>Saved Items</h2>
 
       <div class="saved-grid">
-        @for (course of courses; track course.projectName; let i = $index) {
+
+        @for (course of courses; track course.id) {
+
           <div class="saved-card">
 
             @if (course.image) {
               <img
                 [src]="course.image"
-                title="{{ course.projectName }} Image"
-                class="saved-image">
+                [title]="course.projectName + ' Image'"
+                class="saved-image" title="{{ course.projectName }} Image">
             }
 
             <div class="saved-content">
-              <span class="saved-category">{{ course.category }}</span>
-              <span class="saved-major">{{ course.major }}</span>
+
+              <span class="saved-category">
+                {{ course.category }}
+              </span>
+
+              <span class="saved-major">
+                {{ course.major }}
+              </span>
 
               <h3>{{ course.projectName }}</h3>
 
               <p>{{ course.description }}</p>
 
-              <strong class="saved-fees">{{ course.fees }}</strong>
+              <strong class="saved-fees">
+                {{ course.fees }}
+              </strong>
 
               <div class="card-actions">
-                <button class="edit-btn" (click)="editCourse(i)">Edit</button>
-                <button class="delete-btn" (click)="deleteCourse(i)">Delete</button>
+
+                <button (click)="editCourse(course)">
+                  Edit
+                </button>
+
+                <button (click)="deleteCourse(course)">
+                  Delete
+                </button>
+
               </div>
+
             </div>
 
           </div>
+
         }
+
       </div>
 
     </div>
+
   }
 
 </div>

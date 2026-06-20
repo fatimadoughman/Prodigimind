@@ -1,46 +1,53 @@
-import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CourseService } from '../services/course';
+import { CourseService, Course } from '../services/course';
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
   imports: [FormsModule],
-  providers: [CourseService],
   templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css']
+  styleUrl: './admin-dashboard.component.css'
 })
-export class AdminDashboardComponent {
+export class AdminDashboardComponent implements OnInit {
 
-  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
-
+  courses: Course[] = [];
   showCard = false;
-  editingIndex: number | null = null;
+  editingId: string | null = null;
 
-  courses: any[] = [];
-
-  newCourse = {
+  newCourse: Course = {
     projectName: '',
     major: '',
     image: '',
-    description: '',  category: 'Project',
-    fees: ''
+    description: '',
+    category: 'Course',
+    fees: '',
+    duration: ''
   };
 
-  constructor(private courseService: CourseService) {
-    this.courses = this.courseService.getCourses();
-  }
 
+  constructor(
+    private courseService: CourseService,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit() {
+    this.courseService.getCourses().subscribe(data => {
+      this.courses = data;
+      this.cdr.detectChanges();
+      console.log('Firebase courses:', data);
+    });
+  }
   openCard() {
     this.showCard = true;
+    this.editingId = null;
+    this.resetForm();
   }
 
-  addCourse() {
-    if (!this.newCourse.projectName || !this.newCourse.description) return;
-
-    if (this.editingIndex !== null) {
-      this.courseService.updateCourse(this.editingIndex, { ...this.newCourse });
-      this.editingIndex = null;
+  publishCourse() {
+    if (this.editingId) {
+      this.courseService.updateCourse(this.editingId, { ...this.newCourse });
+      this.editingId = null;
     } else {
       this.courseService.addCourse({ ...this.newCourse });
     }
@@ -49,14 +56,31 @@ export class AdminDashboardComponent {
     this.showCard = false;
   }
 
-  editCourse(index: number) {
-    this.newCourse = { ...this.courses[index] };
-    this.editingIndex = index;
+  editCourse(course: Course) {
     this.showCard = true;
+    this.editingId = course.id!;
+    this.newCourse = { ...course };
   }
 
-  deleteCourse(index: number) {
-    this.courseService.deleteCourse(index);
+  deleteCourse(course: Course) {
+    if (course.id) {
+      this.courseService.deleteCourse(course.id);
+    }
+  }
+
+  onImageUpload(event: Event) {
+    const input = event.target as HTMLInputElement;
+
+    if (!input.files || input.files.length === 0) return;
+
+    const file = input.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      this.newCourse.image = reader.result as string;
+    };
+
+    reader.readAsDataURL(file);
   }
 
   resetForm() {
@@ -65,26 +89,9 @@ export class AdminDashboardComponent {
       major: '',
       image: '',
       description: '',
+      category: 'Course',
       fees: '',
-      category: 'Project'
+      duration: ''
     };
-
-    if (this.fileInput) {
-      this.fileInput.nativeElement.value = '';
-    }
-  }
-
-  onImageUpload(event: any) {
-    const file = event.target.files[0];
-
-    if (!file) return;
-
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      this.newCourse.image = reader.result as string;
-    };
-
-    reader.readAsDataURL(file);
   }
 }

@@ -1,36 +1,71 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject, EnvironmentInjector, runInInjectionContext } from '@angular/core';
+import {
+  Firestore,
+  collection,
+  addDoc,
+  doc,
+  updateDoc,
+  deleteDoc,
+  onSnapshot
+} from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
+export interface Course {
+  id?: string;
+  projectName: string;
+  major: string;
+  image: string;
+  description: string;
+  category: string;
+  fees: string;
+  duration: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
-  private storageKey = 'prodigimind_courses';
+  private firestore = inject(Firestore);
+  private injector = inject(EnvironmentInjector);
 
-  private courses: any[] = JSON.parse(
-    localStorage.getItem(this.storageKey) || '[]'
-  );
+  getCourses(): Observable<Course[]> {
+    return new Observable<Course[]>((observer) => {
+      return runInInjectionContext(this.injector, () => {
+        const coursesRef = collection(this.firestore, 'courses');
 
-  getCourses() {
-    return this.courses;
+        const unsubscribe = onSnapshot(coursesRef, (snapshot) => {
+          const courses: Course[] = snapshot.docs.map(docItem => ({
+            id: docItem.id,
+            ...(docItem.data() as Course)
+          }));
+
+          observer.next(courses);
+        });
+
+        return () => unsubscribe();
+      });
+    });
   }
 
-  addCourse(course: any) {
-    this.courses.push(course);
-    this.saveCourses();
+  addCourse(course: Course) {
+    return runInInjectionContext(this.injector, () => {
+      const coursesRef = collection(this.firestore, 'courses');
+      return addDoc(coursesRef, course);
+    });
   }
 
-  updateCourse(index: number, course: any) {
-    this.courses[index] = course;
-    this.saveCourses();
+  updateCourse(id: string, course: Partial<Course>) {
+    return runInInjectionContext(this.injector, () => {
+      const courseDoc = doc(this.firestore, `courses/${id}`);
+      return updateDoc(courseDoc, course);
+    });
   }
 
-  deleteCourse(index: number) {
-    this.courses.splice(index, 1);
-    this.saveCourses();
-  }
-
-  private saveCourses() {
-    localStorage.setItem(this.storageKey, JSON.stringify(this.courses));
+  deleteCourse(id: string) {
+    return runInInjectionContext(this.injector, () => {
+      const courseDoc = doc(this.firestore, `courses/${id}`);
+      return deleteDoc(courseDoc);
+    });
   }
 }
