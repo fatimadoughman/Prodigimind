@@ -56,5 +56,9 @@ export const routes: Routes = [
         component: CoursesComponent
       }
     ]
-  }
+  },
+  {
+  path: '**',
+  redirectTo: 'homepage'
+}
 ];
