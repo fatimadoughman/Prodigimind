@@ -38,27 +38,22 @@ export const routes: Routes = [
     path: 'contact-us',
     component: ContactUsComponent
   },
-  {
-    path: '',
-    component: LayoutComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: 'homepage',
-        pathMatch: 'full'
-      },
-      {
-        path: 'homepage',
-        component: HomepageComponent
-      },
-      {
-        path: 'courses',
-        component: CoursesComponent
-      }
-    ]
-  },
-  {
+{
+  path: '',
+  component: LayoutComponent,
+  children: [
+    {
+      path: '',
+      component: HomepageComponent
+    },
+    {
+      path: 'courses',
+      component: CoursesComponent
+    }
+  ]
+},
+{
   path: '**',
-  redirectTo: 'homepage'
+  redirectTo: ''
 }
 ];
