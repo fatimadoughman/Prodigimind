@@ -1,0 +1,300 @@
+<section class="feedback-section">
+  <div class="feedback-container">
+
+    <div class="section-heading">
+      <span class="section-label">Student Experiences</span>
+
+      <h2>What Our Students Say</h2>
+
+      <p>
+        Read experiences from students who received tutoring,
+        project support, career guidance, and academic assistance.
+      </p>
+    </div>
+
+    <div class="feedback-list">
+
+      <div class="feedback-slider-header">
+        <h3>Student Feedback</h3>
+
+        <div class="feedback-header-actions">
+
+          <button
+            type="button"
+            class="leave-feedback-btn"
+            (click)="openFeedbackForm()">
+            Leave Your Feedback
+          </button>
+
+          @if (feedbackList.length > 2) {
+            <div class="slider-buttons">
+
+              <button
+                type="button"
+                class="slider-arrow"
+                aria-label="Show previous feedback"
+                (click)="scrollFeedback('left')">
+                ←
+              </button>
+
+              <button
+                type="button"
+                class="slider-arrow"
+                aria-label="Show next feedback"
+                (click)="scrollFeedback('right')">
+                →
+              </button>
+
+            </div>
+          }
+
+        </div>
+      </div>
+
+      @if (isLoading) {
+
+        <div class="loading-feedback">
+          Loading feedback...
+        </div>
+
+      } @else if (feedbackList.length > 0) {
+
+        <div
+          #feedbackSlider
+          class="feedback-slider"
+          [class.has-many-feedback]="feedbackList.length > 2">
+
+          @for (feedback of feedbackList; track feedback.id) {
+
+            <article class="feedback-card">
+
+              <div class="feedback-card-top">
+
+                <div class="avatar">
+                  {{ feedback.name.charAt(0).toUpperCase() }}
+                </div>
+
+                <div class="student-details">
+                  <h3>{{ feedback.name }}</h3>
+
+                  @if (feedback.university) {
+                    <p>{{ feedback.university }}</p>
+                  }
+                </div>
+
+                <span class="quote-mark">“</span>
+
+              </div>
+
+              <div
+                class="rating"
+                [attr.aria-label]="feedback.rating + ' out of 5 stars'">
+
+                @for (star of stars; track star) {
+                  <span [class.active]="star <= feedback.rating">
+                    ★
+                  </span>
+                }
+
+              </div>
+
+              <p class="feedback-message">
+                {{ feedback.message }}
+              </p>
+
+            </article>
+
+          }
+
+        </div>
+
+      } @else {
+
+        <div class="empty-feedback">
+          <h3>No feedback yet</h3>
+          <p>Be the first student to share your experience.</p>
+
+          <button
+            type="button"
+            class="leave-feedback-btn"
+            (click)="openFeedbackForm()">
+            Leave Your Feedback
+          </button>
+        </div>
+
+      }
+
+    </div>
+
+  </div>
+</section>
+
+@if (showFeedbackForm) {
+
+  <div
+    class="feedback-modal-backdrop"
+    (click)="closeFeedbackForm()">
+
+    <div
+      class="feedback-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="feedback-modal-title"
+      (click)="$event.stopPropagation()">
+
+      <button
+        type="button"
+        class="modal-close-btn"
+        aria-label="Close feedback form"
+        (click)="closeFeedbackForm()">
+        ✕
+      </button>
+
+      <div class="form-heading">
+        <span>Share your experience</span>
+
+        <h3 id="feedback-modal-title">
+          Add Your Feedback
+        </h3>
+
+        <p>
+          Your feedback helps us improve our services
+          and support more students.
+        </p>
+      </div>
+
+      <form
+        [formGroup]="feedbackForm"
+        (ngSubmit)="submitFeedback()">
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="feedback-name">
+              Your Name
+            </label>
+
+            <input
+              id="feedback-name"
+              type="text"
+              formControlName="name"
+              placeholder="Enter your name">
+
+            @if (
+              feedbackForm.controls.name.touched &&
+              feedbackForm.controls.name.invalid
+            ) {
+              <small class="field-error">
+                Please enter your name.
+              </small>
+            }
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="feedback-university">
+              University
+              <span>(optional)</span>
+            </label>
+
+            <input
+              id="feedback-university"
+              type="text"
+              formControlName="university"
+              placeholder="Your university">
+
+          </div>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Your Rating</label>
+
+          <div class="rating-input">
+
+            @for (star of stars; track star) {
+              <button
+                type="button"
+                class="star-button"
+                [class.selected]="
+                  star <= feedbackForm.controls.rating.value
+                "
+                (click)="setRating(star)">
+                ★
+              </button>
+            }
+
+          </div>
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="feedback-message">
+            Your Feedback
+          </label>
+
+          <textarea
+            id="feedback-message"
+            formControlName="message"
+            maxlength="500"
+            placeholder="Tell us about your experience...">
+          </textarea>
+
+          <div class="textarea-footer">
+
+            <div>
+              @if (
+                feedbackForm.controls.message.touched &&
+                feedbackForm.controls.message.invalid
+              ) {
+                <small class="field-error">
+                  Please enter at least 10 characters.
+                </small>
+              }
+            </div>
+
+            <small>
+              {{ feedbackForm.controls.message.value.length }}/500
+            </small>
+
+          </div>
+
+        </div>
+
+        @if (successMessage) {
+          <div class="form-message success-message">
+            {{ successMessage }}
+          </div>
+        }
+
+        @if (errorMessage) {
+          <div class="form-message error-message">
+            {{ errorMessage }}
+          </div>
+        }
+
+        <button
+          class="submit-feedback-btn"
+          type="submit"
+          [disabled]="isSubmitting">
+
+          @if (isSubmitting) {
+            Submitting...
+          } @else {
+            Submit Feedback
+            <span>➜</span>
+          }
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+}

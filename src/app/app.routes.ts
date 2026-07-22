@@ -9,6 +9,7 @@ import { MainCoursesComponent } from './main-courses/main-courses.component';
 import { ProjectsComponent } from './projects/projects';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ServicessComponent } from './servicess/servicess.component';
+import { FeedbackComponent } from './feedback/feedback';
 export const routes: Routes = [
   {
     path: 'admin-login',
@@ -24,7 +25,10 @@ export const routes: Routes = [
    {
     path: 'servicess',
     component: ServicessComponent
-  },
+  }, {
+  path: 'feedback',
+  component: FeedbackComponent
+},
  {
   path: 'main-courses',
   component: MainCoursesComponent

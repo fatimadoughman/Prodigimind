@@ -2,12 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { FeedbackComponent } from '../../app/feedback/feedback';
+
 @Component({
   selector: 'app-courses',
   standalone: true,
   templateUrl: './Courses.component.html',
   styleUrls: ['./Courses.component.css'],
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, FeedbackComponent]
 })
 export class CoursesComponent {
   courses = [
