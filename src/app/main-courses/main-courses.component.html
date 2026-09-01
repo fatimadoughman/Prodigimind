@@ -1,98 +1,2495 @@
-<section class="main-courses-page">
+<section class="courses-page">
 
-  <div class="main-header">
-    <span class="section-tag">OUR SERVICES</span>
-    <h1>Explore courses and international exams</h1>
-    <p>Choose what you need and start building real skills with ProdigiMind.</p>
-  </div>
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-  <div class="course-filters">
-    <input
-      type="text"
-      placeholder="Search by course name..."
-      [(ngModel)]="searchText">
+  <header class="courses-header">
 
-    <select [(ngModel)]="selectedMajor" title="Filter by Major">
-      <option value="All">All Majors</option>
-      <option value="Computer Science">Computer Science</option>
-      <option value="Engineering">Engineering</option>
-      <option value="Business">Business</option>
-      <option value="Architecture">Architecture</option>
-      <option value="Languages">Languages</option>
-      <option value="ds">ds</option>
-    </select>
-  </div>
+    <span>OUR COURSES</span>
 
-  <div class="category-section">
-    <h2>Courses</h2>
+    <h1>
+      Learn. Grow. Achieve.
+    </h1>
 
-    <div class="main-grid">
-      @for (course of filteredCourses; track course.id) {
-        @if (course.category === 'Course') {
-          <div class="main-card">
+    <p>
+      Practical courses, exam preparation, digital skills,
+      professional training, and career development.
+    </p>
 
-            @if (course.image) {
-              <img title="{{ course.projectName }} Image"
-                [src]="course.image"
-                class="course-icon-img"
-                [title]="course.projectName + ' Image'">
-            } @else {
-              <div class="course-icon-box">📚</div>
-            }
+  </header>
 
-            <span class="course-major">{{ course.major }}</span>
-            <h3>{{ course.projectName }}</h3>
-            <p>{{ course.description }}</p>
 
-            <div class="course-info">
-              <span>{{ course.duration || '4 weeks' }}</span>
-              <strong>{{ course.fees }}</strong>
-            </div>
+  <!-- =====================================================
+       01 — LANGUAGES & INTERNATIONAL EXAMS
+  ====================================================== -->
 
-            <button class="enroll-btn" (click)="enroll(course)">
-              Enroll Now →
-            </button>
+  <section class="course-category">
 
-          </div>
-        }
-      }
+    <div class="category-heading">
+      <span>01</span>
+      <h2>Languages & International Exams</h2>
     </div>
-  </div>
 
-  <div class="category-section exams-section">
-    <h2>International Exams</h2>
 
-    <div class="main-grid">
-      @for (course of filteredCourses; track course.id) {
-        @if (course.category === 'International Exam') {
-          <div class="main-card">
+    <div class="courses-grid">
 
-            @if (course.image) {
-              <img title="{{ course.projectName }} Image"
-                [src]="course.image"
-                class="course-icon-img"
-                [title]="course.projectName + ' Image'">
-            } @else {
-              <div class="course-icon-box">🌍</div>
-            }
 
-            <span class="course-major">{{ course.major }}</span>
-            <h3>{{ course.projectName }}</h3>
-            <p>{{ course.description }}</p>
+      <!-- ENGLISH -->
 
-            <div class="course-info">
-              <span>{{ course.duration || 'Flexible' }}</span>
-              <strong>{{ course.fees }}</strong>
-            </div>
+      <article class="course-card"
+               [class.open]="openCourse === 1">
 
-            <button class="enroll-btn" (click)="enroll(course)">
-              Register Now →
-            </button>
+        <div class="course-icon">🇬🇧</div>
 
-          </div>
-        }
-      }
+        <span class="course-tag">
+          English
+        </span>
+
+        <h3>
+          English Course – 20 Hours
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$120</span>
+          <span class="new-price">$79</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(1)">
+
+          <span>
+            {{ openCourse === 1 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 1 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+
+        <div class="course-details"
+             [class.show]="openCourse === 1">
+
+          <ul>
+            <li>20 Hours</li>
+            <li>Beginner to Advanced</li>
+            <li>Academic English</li>
+            <li>Professional Communication</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+
+      <!-- FRENCH -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 2">
+
+        <div class="course-icon">🇫🇷</div>
+
+        <span class="course-tag">
+          French
+        </span>
+
+        <h3>
+          French Course – 20 Hours
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$120</span>
+          <span class="new-price">$79</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(2)">
+
+          <span>
+            {{ openCourse === 2 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 2 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 2">
+
+          <ul>
+            <li>20 Hours</li>
+            <li>Beginner to Advanced</li>
+            <li>French Grammar</li>
+            <li>Conversation Practice</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+
+      <!-- FRENCH A2 -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 3">
+
+        <div class="course-icon">🇫🇷</div>
+
+        <span class="course-tag">
+          French A2
+        </span>
+
+        <h3>
+          French A2 – 22 Hours
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$130</span>
+          <span class="new-price">$89</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(3)">
+
+          <span>
+            {{ openCourse === 3 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 3 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 3">
+
+          <ul>
+            <li>22 Hours</li>
+            <li>A2 French Level</li>
+            <li>Grammar & Vocabulary</li>
+            <li>Conversation Practice</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+
+      <!-- ENGLISH CONVERSATION -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 4">
+
+        <div class="course-icon">🇬🇧</div>
+
+        <span class="course-tag">
+          Conversation
+        </span>
+
+        <h3>
+          English Conversation Course
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$100</span>
+          <span class="new-price">$69</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(4)">
+
+          <span>
+            {{ openCourse === 4 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 4 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 4">
+
+          <ul>
+            <li>Conversation Practice</li>
+            <li>Speaking Confidence</li>
+            <li>Daily Communication</li>
+            <li>Professional Speaking</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+
+      <!-- FRENCH CONVERSATION -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 5">
+
+        <div class="course-icon">🇫🇷</div>
+
+        <span class="course-tag">
+          Conversation
+        </span>
+
+        <h3>
+          French Conversation Course
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$100</span>
+          <span class="new-price">$69</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(5)">
+
+          <span>
+            {{ openCourse === 5 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 5 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 5">
+
+          <ul>
+            <li>Conversation Practice</li>
+            <li>Speaking Confidence</li>
+            <li>Everyday French</li>
+            <li>Professional Communication</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+
+      <!-- DELF -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 6">
+
+        <div class="course-icon">🇫🇷</div>
+
+        <span class="course-tag">
+          Exam Preparation
+        </span>
+
+        <h3>
+          DELF B2 Preparation
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$180</span>
+          <span class="new-price">$129</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(6)">
+
+          <span>
+            {{ openCourse === 6 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 6 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 6">
+
+          <ul>
+            <li>DELF B2 Preparation</li>
+            <li>Reading & Listening</li>
+            <li>Writing & Speaking</li>
+            <li>Exam Strategies</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+
+      <!-- IELTS -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 7">
+
+        <div class="course-icon">🇬🇧</div>
+
+        <span class="course-tag">
+          Exam Preparation
+        </span>
+
+        <h3>
+          IELTS Preparation
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$180</span>
+          <span class="new-price">$129</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(7)">
+
+          <span>
+            {{ openCourse === 7 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 7 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 7">
+
+          <ul>
+            <li>IELTS Exam Preparation</li>
+            <li>Reading & Listening</li>
+            <li>Writing & Speaking</li>
+            <li>Exam Techniques</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+
+      <!-- SAT -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 8">
+
+        <div class="course-icon">🇺🇸</div>
+
+        <span class="course-tag">
+          Exam Preparation
+        </span>
+
+        <h3>
+          SAT Preparation
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$200</span>
+          <span class="new-price">$149</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(8)">
+
+          <span>
+            {{ openCourse === 8 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 8 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 8">
+
+          <ul>
+            <li>Math Preparation</li>
+            <li>Reading & Writing</li>
+            <li>Practice Questions</li>
+            <li>Exam Strategies</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
     </div>
-  </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       02 — UNIVERSITY ENTRANCE
+  ====================================================== -->
+
+  <section class="course-category">
+
+    <div class="category-heading">
+      <span>02</span>
+      <h2>University Entrance Preparation</h2>
+    </div>
+
+    <div class="courses-grid">
+
+
+      <!-- LU -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 9">
+
+        <div class="course-icon">🎓</div>
+
+        <span class="course-tag">
+          Entrance
+        </span>
+
+        <h3>
+          LU Entrance Preparation
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$150</span>
+          <span class="new-price">$99</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(9)">
+
+          <span>
+            {{ openCourse === 9 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 9 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 9">
+
+          <ul>
+            <li>University Entrance Preparation</li>
+            <li>Mathematics</li>
+            <li>Probability</li>
+            <li>English & Physics</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- MIS -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 10">
+
+        <div class="course-icon">📊</div>
+
+        <span class="course-tag">
+          Entrance
+        </span>
+
+        <h3>
+          MIS Entrance Preparation
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$150</span>
+          <span class="new-price">$99</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(10)">
+
+          <span>
+            {{ openCourse === 10 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 10 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 10">
+
+          <ul>
+            <li>MIS Entrance Preparation</li>
+            <li>Mathematics</li>
+            <li>Probability</li>
+            <li>English Preparation</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- ENGINEERING -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 11">
+
+        <div class="course-icon">⚙️</div>
+
+        <span class="course-tag">
+          Entrance
+        </span>
+
+        <h3>
+          Engineering Entrance Preparation
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$180</span>
+          <span class="new-price">$119</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(11)">
+
+          <span>
+            {{ openCourse === 11 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 11 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 11">
+
+          <ul>
+            <li>Engineering Entrance Preparation</li>
+            <li>Mathematics</li>
+            <li>Physics</li>
+            <li>Problem Solving</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- BUSINESS -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 12">
+
+        <div class="course-icon">💼</div>
+
+        <span class="course-tag">
+          Entrance
+        </span>
+
+        <h3>
+          Business Entrance Preparation
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$150</span>
+          <span class="new-price">$99</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(12)">
+
+          <span>
+            {{ openCourse === 12 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 12 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 12">
+
+          <ul>
+            <li>Business Entrance Preparation</li>
+            <li>Mathematics</li>
+            <li>English</li>
+            <li>Business Fundamentals</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       03 — DATA & ANALYTICS
+  ====================================================== -->
+
+  <section class="course-category">
+
+    <div class="category-heading">
+      <span>03</span>
+      <h2>Data & Analytics</h2>
+    </div>
+
+    <div class="courses-grid">
+
+
+      <!-- LEVEL 1 -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 13">
+
+        <div class="course-icon">📊</div>
+
+        <span class="course-tag">
+          Analytics
+        </span>
+
+        <h3>
+          Data Analytics – Level 1
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$350</span>
+          <span class="new-price">$279</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(13)">
+
+          <span>
+            {{ openCourse === 13 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 13 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 13">
+
+          <ul>
+            <li>20 Hours</li>
+            <li>Data Analytics Fundamentals</li>
+            <li>Excel & Data Preparation</li>
+            <li>Practical Exercises</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- LEVEL 2 -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 14">
+
+        <div class="course-icon">📊</div>
+
+        <span class="course-tag">
+          Analytics
+        </span>
+
+        <h3>
+          Data Analytics – Level 2
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$350</span>
+          <span class="new-price">$279</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(14)">
+
+          <span>
+            {{ openCourse === 14 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 14 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 14">
+
+          <ul>
+            <li>Advanced Data Analysis</li>
+            <li>Statistical Techniques</li>
+            <li>Data Visualization</li>
+            <li>Practical Projects</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- LEVEL 3 -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 15">
+
+        <div class="course-icon">📊</div>
+
+        <span class="course-tag">
+          Analytics
+        </span>
+
+        <h3>
+          Data Analytics – Level 3
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$350</span>
+          <span class="new-price">$279</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(15)">
+
+          <span>
+            {{ openCourse === 15 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 15 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 15">
+
+          <ul>
+            <li>Advanced Analytics</li>
+            <li>Business Intelligence</li>
+            <li>Dashboard Development</li>
+            <li>Advanced Practical Projects</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- FULL DIPLOMA -->
+
+      <article class="course-card "
+               [class.open]="openCourse === 16">
+
+        <div class="course-icon">🚀</div>
+
+        <span class="course-tag">
+          Full Diploma
+        </span>
+
+        <h3>
+          Data Analytics Full Diploma – 3 Levels
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$1,050</span>
+          <span class="new-price">$749</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(16)">
+
+          <span>
+            {{ openCourse === 16 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 16 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 16">
+
+          <ul>
+            <li>Level 1 + Level 2 + Level 3</li>
+            <li>Complete Data Analytics Path</li>
+            <li>Practical Projects</li>
+            <li>Internship Opportunities</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- EXCEL -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 17">
+
+        <div class="course-icon">📊</div>
+
+        <span class="course-tag">
+          Excel
+        </span>
+
+        <h3>
+          Excel Course
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$100</span>
+          <span class="new-price">$69</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(17)">
+
+          <span>
+            {{ openCourse === 17 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 17 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 17">
+
+          <ul>
+            <li>Excel Fundamentals</li>
+            <li>Formulas & Functions</li>
+            <li>Tables & Data Management</li>
+            <li>Practical Exercises</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- ADVANCED EXCEL -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 18">
+
+        <div class="course-icon">📈</div>
+
+        <span class="course-tag">
+          Advanced Excel
+        </span>
+
+        <h3>
+          Advanced Excel
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$130</span>
+          <span class="new-price">$89</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(18)">
+
+          <span>
+            {{ openCourse === 18 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 18 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 18">
+
+          <ul>
+            <li>Advanced Formulas</li>
+            <li>Pivot Tables</li>
+            <li>Advanced Data Analysis</li>
+            <li>Professional Reports</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- POWER BI -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 19">
+
+        <div class="course-icon">📊</div>
+
+        <span class="course-tag">
+          Business Intelligence
+        </span>
+
+        <h3>
+          Power BI
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$150</span>
+          <span class="new-price">$109</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(19)">
+
+          <span>
+            {{ openCourse === 19 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 19 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 19">
+
+          <ul>
+            <li>Power BI Fundamentals</li>
+            <li>Data Visualization</li>
+            <li>Interactive Dashboards</li>
+            <li>Business Reports</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- SPSS -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 20">
+
+        <div class="course-icon">📉</div>
+
+        <span class="course-tag">
+          Statistics
+        </span>
+
+        <h3>
+          SPSS Course
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$150</span>
+          <span class="new-price">$99</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(20)">
+
+          <span>
+            {{ openCourse === 20 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 20 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 20">
+
+          <ul>
+            <li>SPSS Fundamentals</li>
+            <li>Statistical Tests</li>
+            <li>Data Analysis</li>
+            <li>Results Interpretation</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       04 — PROGRAMMING, AI & CYBERSECURITY
+  ====================================================== -->
+
+  <section class="course-category">
+
+    <div class="category-heading">
+      <span>04</span>
+      <h2>Programming, AI & Cybersecurity</h2>
+    </div>
+
+    <div class="courses-grid">
+
+
+      <!-- PYTHON -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 21">
+
+        <div class="course-icon">🐍</div>
+
+        <span class="course-tag">
+          Programming
+        </span>
+
+        <h3>
+          Python Foundations
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$120</span>
+          <span class="new-price">$89</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(21)">
+
+          <span>
+            {{ openCourse === 21 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 21 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 21">
+
+          <ul>
+            <li>Python Fundamentals</li>
+            <li>Variables & Functions</li>
+            <li>Loops & Conditions</li>
+            <li>Practical Exercises</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- PROGRAMMING -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 22">
+
+        <div class="course-icon">💻</div>
+
+        <span class="course-tag">
+          Programming
+        </span>
+
+        <h3>
+          Programming Foundations
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$100</span>
+          <span class="new-price">$80</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(22)">
+
+          <span>
+            {{ openCourse === 22 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 22 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 22">
+
+          <ul>
+            <li>Programming Fundamentals</li>
+            <li>Logic & Algorithms</li>
+            <li>Variables & Arrays</li>
+            <li>Practical Projects</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- AI TOOLS -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 23">
+
+        <div class="course-icon">🤖</div>
+
+        <span class="course-tag">
+          Artificial Intelligence
+        </span>
+
+        <h3>
+          AI Tools Course
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$120</span>
+          <span class="new-price">$79</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(23)">
+
+          <span>
+            {{ openCourse === 23 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 23 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 23">
+
+          <ul>
+            <li>Popular AI Tools</li>
+            <li>Prompt Engineering</li>
+            <li>Productivity Tools</li>
+            <li>Practical Applications</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- AI STUDENTS -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 24">
+
+        <div class="course-icon">🤖</div>
+
+        <span class="course-tag">
+          AI
+        </span>
+
+        <h3>
+          AI for Students
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$100</span>
+          <span class="new-price">$69</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(24)">
+
+          <span>
+            {{ openCourse === 24 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 24 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 24">
+
+          <ul>
+            <li>AI for Academic Work</li>
+            <li>Research Assistance</li>
+            <li>Productivity Tools</li>
+            <li>Responsible AI Use</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- AI BUSINESS -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 25">
+
+        <div class="course-icon">🤖</div>
+
+        <span class="course-tag">
+          AI Business
+        </span>
+
+        <h3>
+          AI for Business
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$180</span>
+          <span class="new-price">$129</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(25)">
+
+          <span>
+            {{ openCourse === 25 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 25 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 25">
+
+          <ul>
+            <li>AI for Business</li>
+            <li>Automation Opportunities</li>
+            <li>AI Productivity</li>
+            <li>Business Use Cases</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- CYBERSECURITY -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 26">
+
+        <div class="course-icon">🔐</div>
+
+        <span class="course-tag">
+          Cybersecurity
+        </span>
+
+        <h3>
+          Cybersecurity Fundamentals
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$150</span>
+          <span class="new-price">$109</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(26)">
+
+          <span>
+            {{ openCourse === 26 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 26 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 26">
+
+          <ul>
+            <li>Cybersecurity Fundamentals</li>
+            <li>Online Safety</li>
+            <li>Threat Awareness</li>
+            <li>Security Best Practices</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- WEB -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 27">
+
+        <div class="course-icon">🌐</div>
+
+        <span class="course-tag">
+          Web Development
+        </span>
+
+        <h3>
+          Web Development Foundations
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$180</span>
+          <span class="new-price">$129</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(27)">
+
+          <span>
+            {{ openCourse === 27 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 27 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 27">
+
+          <ul>
+            <li>HTML & CSS</li>
+            <li>Web Fundamentals</li>
+            <li>Responsive Design</li>
+            <li>Practical Website Project</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- ANGULAR -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 28">
+
+        <div class="course-icon">🅰️</div>
+
+        <span class="course-tag">
+          Web Development
+        </span>
+
+        <h3>
+          Angular Course
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$200</span>
+          <span class="new-price">$149</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(28)">
+
+          <span>
+            {{ openCourse === 28 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 28 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 28">
+
+          <ul>
+            <li>Angular Fundamentals</li>
+            <li>Components & Services</li>
+            <li>Routing</li>
+            <li>Practical Angular Project</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       05 — BUSINESS & PROFESSIONAL SKILLS
+  ====================================================== -->
+
+  <section class="course-category">
+
+    <div class="category-heading">
+      <span>05</span>
+      <h2>Business & Professional Skills</h2>
+    </div>
+
+    <div class="courses-grid">
+
+
+      <!-- DIGITAL MARKETING -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 29">
+
+        <div class="course-icon">📱</div>
+
+        <span class="course-tag">
+          Marketing
+        </span>
+
+        <h3>
+          Digital Marketing
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$150</span>
+          <span class="new-price">$99</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(29)">
+
+          <span>
+            {{ openCourse === 29 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 29 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 29">
+
+          <ul>
+            <li>Digital Marketing Fundamentals</li>
+            <li>Social Media Marketing</li>
+            <li>Content Strategy</li>
+            <li>Practical Campaigns</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- ACCOUNTING -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 30">
+
+        <div class="course-icon">💰</div>
+
+        <span class="course-tag">
+          Finance
+        </span>
+
+        <h3>
+          Accounting Course
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$130</span>
+          <span class="new-price">$89</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(30)">
+
+          <span>
+            {{ openCourse === 30 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 30 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 30">
+
+          <ul>
+            <li>Accounting Fundamentals</li>
+            <li>Journal Entries</li>
+            <li>Financial Statements</li>
+            <li>Practical Accounting</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- FINANCE -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 31">
+
+        <div class="course-icon">💵</div>
+
+        <span class="course-tag">
+          Finance
+        </span>
+
+        <h3>
+          Finance Fundamentals
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$130</span>
+          <span class="new-price">$89</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(31)">
+
+          <span>
+            {{ openCourse === 31 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 31 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 31">
+
+          <ul>
+            <li>Finance Fundamentals</li>
+            <li>Financial Analysis</li>
+            <li>Budgeting</li>
+            <li>Business Finance</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- ENTREPRENEURSHIP -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 32">
+
+        <div class="course-icon">🚀</div>
+
+        <span class="course-tag">
+          Business
+        </span>
+
+        <h3>
+          Entrepreneurship Course
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$120</span>
+          <span class="new-price">$79</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(32)">
+
+          <span>
+            {{ openCourse === 32 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 32 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 32">
+
+          <ul>
+            <li>Entrepreneurship Fundamentals</li>
+            <li>Business Ideas</li>
+            <li>Business Models</li>
+            <li>Pitch Development</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- LEADERSHIP -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 33">
+
+        <div class="course-icon">🧠</div>
+
+        <span class="course-tag">
+          Leadership
+        </span>
+
+        <h3>
+          Leadership Skills
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$100</span>
+          <span class="new-price">$69</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(33)">
+
+          <span>
+            {{ openCourse === 33 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 33 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 33">
+
+          <ul>
+            <li>Leadership Fundamentals</li>
+            <li>Team Management</li>
+            <li>Leadership Communication</li>
+            <li>Practical Activities</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- COMMUNICATION -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 34">
+
+        <div class="course-icon">🎤</div>
+
+        <span class="course-tag">
+          Soft Skills
+        </span>
+
+        <h3>
+          Communication Skills
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$100</span>
+          <span class="new-price">$69</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(34)">
+
+          <span>
+            {{ openCourse === 34 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 34 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 34">
+
+          <ul>
+            <li>Verbal Communication</li>
+            <li>Active Listening</li>
+            <li>Professional Communication</li>
+            <li>Practical Activities</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- CONFIDENCE -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 35">
+
+        <div class="course-icon">💪</div>
+
+        <span class="course-tag">
+          Soft Skills
+        </span>
+
+        <h3>
+          Confidence Building
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$100</span>
+          <span class="new-price">$69</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(35)">
+
+          <span>
+            {{ openCourse === 35 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 35 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 35">
+
+          <ul>
+            <li>Confidence Building</li>
+            <li>Body Language</li>
+            <li>Public Speaking</li>
+            <li>Practical Confidence Activities</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- DECISION MAKING -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 36">
+
+        <div class="course-icon">🧩</div>
+
+        <span class="course-tag">
+          Soft Skills
+        </span>
+
+        <h3>
+          Decision Making
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$100</span>
+          <span class="new-price">$69</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(36)">
+
+          <span>
+            {{ openCourse === 36 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 36 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 36">
+
+          <ul>
+            <li>Decision-Making Frameworks</li>
+            <li>Problem Solving</li>
+            <li>Critical Thinking</li>
+            <li>Practical Scenarios</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- SOFT SKILLS -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 37">
+
+        <div class="course-icon">🎯</div>
+
+        <span class="course-tag">
+          Soft Skills
+        </span>
+
+        <h3>
+          Soft Skills Program
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$150</span>
+          <span class="new-price">$99</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(37)">
+
+          <span>
+            {{ openCourse === 37 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 37 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 37">
+
+          <ul>
+            <li>Communication</li>
+            <li>Confidence</li>
+            <li>Leadership</li>
+            <li>Professional Skills</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- PRESENTATION -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 38">
+
+        <div class="course-icon">🎤</div>
+
+        <span class="course-tag">
+          Presentation
+        </span>
+
+        <h3>
+          Presentation Skills
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$100</span>
+          <span class="new-price">$69</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(38)">
+
+          <span>
+            {{ openCourse === 38 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 38 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 38">
+
+          <ul>
+            <li>Presentation Structure</li>
+            <li>Public Speaking</li>
+            <li>Visual Communication</li>
+            <li>Delivery Techniques</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       06 — CAREER READINESS
+  ====================================================== -->
+
+  <section class="course-category">
+
+    <div class="category-heading">
+      <span>06</span>
+      <h2>Career Readiness</h2>
+    </div>
+
+    <div class="courses-grid">
+
+
+      <!-- CAREER -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 39">
+
+        <div class="course-icon">💼</div>
+
+        <span class="course-tag">
+          Career
+        </span>
+
+        <h3>
+          Career Readiness Course
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$120</span>
+          <span class="new-price">$79</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(39)">
+
+          <span>
+            {{ openCourse === 39 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 39 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 39">
+
+          <ul>
+            <li>Career Planning</li>
+            <li>Employability Skills</li>
+            <li>Professional Branding</li>
+            <li>Job Search Strategies</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- CV -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 40">
+
+        <div class="course-icon">📝</div>
+
+        <span class="course-tag">
+          Career
+        </span>
+
+        <h3>
+          CV & LinkedIn Workshop
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$80</span>
+          <span class="new-price">$49</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(40)">
+
+          <span>
+            {{ openCourse === 40 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 40 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 40">
+
+          <ul>
+            <li>Professional CV</li>
+            <li>ATS-Friendly CV</li>
+            <li>LinkedIn Optimization</li>
+            <li>Personal Branding</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- INTERVIEW -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 41">
+
+        <div class="course-icon">🎯</div>
+
+        <span class="course-tag">
+          Career
+        </span>
+
+        <h3>
+          Interview Preparation Workshop
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$80</span>
+          <span class="new-price">$49</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(41)">
+
+          <span>
+            {{ openCourse === 41 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 41 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 41">
+
+          <ul>
+            <li>Interview Techniques</li>
+            <li>Common Interview Questions</li>
+            <li>Confidence & Communication</li>
+            <li>Mock Interview Practice</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       07 — ENGINEERING & TECHNICAL
+  ====================================================== -->
+
+  <section class="course-category">
+
+    <div class="category-heading">
+      <span>07</span>
+      <h2>Engineering & Technical</h2>
+    </div>
+
+    <div class="courses-grid">
+
+
+      <!-- AUTOCAD -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 42">
+
+        <div class="course-icon">🏗️</div>
+
+        <span class="course-tag">
+          Engineering
+        </span>
+
+        <h3>
+          AutoCAD
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$150</span>
+          <span class="new-price">$109</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(42)">
+
+          <span>
+            {{ openCourse === 42 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 42 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 42">
+
+          <ul>
+            <li>AutoCAD Fundamentals</li>
+            <li>2D Drawing</li>
+            <li>Technical Drawing</li>
+            <li>Practical Projects</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- ARDUINO -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 43">
+
+        <div class="course-icon">🤖</div>
+
+        <span class="course-tag">
+          Engineering
+        </span>
+
+        <h3>
+          Arduino
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$150</span>
+          <span class="new-price">$109</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(43)">
+
+          <span>
+            {{ openCourse === 43 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 43 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 43">
+
+          <ul>
+            <li>Arduino Fundamentals</li>
+            <li>Electronics Basics</li>
+            <li>Programming</li>
+            <li>Practical Projects</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+
+      <!-- 3D -->
+
+      <article class="course-card"
+               [class.open]="openCourse === 44">
+
+        <div class="course-icon">🧊</div>
+
+        <span class="course-tag">
+          Design
+        </span>
+
+        <h3>
+          3D Design
+        </h3>
+
+        <div class="course-price">
+          <span class="old-price">$180</span>
+          <span class="new-price">$129</span>
+        </div>
+
+        <button type="button"
+                class="course-details-btn"
+                (click)="toggleCourse(44)">
+
+          <span>
+            {{ openCourse === 44 ? 'Hide Details' : 'View Details' }}
+          </span>
+
+          <span class="details-icon">
+            {{ openCourse === 44 ? '−' : '+' }}
+          </span>
+
+        </button>
+
+        <div class="course-details"
+             [class.show]="openCourse === 44">
+
+          <ul>
+            <li>3D Design Fundamentals</li>
+            <li>3D Modeling</li>
+            <li>Visualization</li>
+            <li>Practical Design Projects</li>
+          </ul>
+
+        </div>
+
+        <a href="#">
+          Enroll Now →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
 
 </section>

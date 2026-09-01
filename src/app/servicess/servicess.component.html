@@ -1,51 +1,407 @@
 <section class="services-page">
 
   <div class="services-header">
-    <span class="section-tag">OUR SERVICES</span>
-    <h1>Career Services for Students</h1>
+    <span>OUR SERVICES</span>
+    <h1>Explore What Prodigi Mind Can Do for You</h1>
     <p>
-      Build your professional profile with CV writing, cover letters,
-      interview preparation, and all essential career skills.
+      Academic, professional, digital, and career solutions
+      designed for students, professionals, and organizations.
     </p>
   </div>
 
+
   <div class="services-grid">
 
-    <div class="service-card">
-      <div class="service-icon">📄</div>
-      <h3>CV Writing</h3>
-      <p>
-        Create a clean, professional, and ATS-friendly CV that highlights
-        your skills, education, projects, and experience.
-      </p>
-    </div>
+    <!-- CARD 1 -->
+    <article class="service-card"
+             [class.open]="openService === 1">
 
-    <div class="service-card">
-      <div class="service-icon">✉️</div>
-      <h3>Cover Letter</h3>
-      <p>
-        Get a strong cover letter tailored for internships, jobs,
-        scholarships, and university applications.
-      </p>
-    </div>
+      <div class="service-card-top">
 
-    <div class="service-card">
-      <div class="service-icon">🎤</div>
-      <h3>Interview Preparation</h3>
-      <p>
-        Practice common interview questions, improve your answers,
-        and learn how to present yourself confidently.
-      </p>
-    </div>
+        <span class="service-icon">🎓</span>
+        <span class="service-number">01</span>
 
-    <div class="service-card">
-      <div class="service-icon">💼</div>
-      <h3>Career Skills</h3>
-      <p>
-        Learn LinkedIn optimization, email writing, job search strategies,
-        networking, and professional communication.
+      </div>
+
+      <h3>Academic & University Support</h3>
+
+      <p class="service-description">
+        Complete academic support for university and school students.
       </p>
-    </div>
+
+      <button type="button"
+              class="service-toggle"
+              (click)="toggleService(1)">
+
+        {{ openService === 1 ? 'Hide Details' : 'View Details' }}
+
+        <span>
+          {{ openService === 1 ? '−' : '+' }}
+        </span>
+
+      </button>
+
+
+      <div class="service-details"
+           [class.show]="openService === 1">
+
+        <ul>
+          <li>University Courses & Tutoring</li>
+          <li>School Academic Support</li>
+          <li>Private & Group Tutoring</li>
+          <li>Exam Preparation</li>
+          <li>Assignment & Project Support</li>
+          <li>Intensive Revision Sessions</li>
+          <li>Lebanese University Entrance Preparation</li>
+          <li>MIS Entrance Preparation</li>
+          <li>Engineering Entrance Preparation</li>
+          <li>Business Entrance Preparation</li>
+          <li>SAT Preparation</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+
+    <!-- CARD 2 -->
+    <article class="service-card"
+             [class.open]="openService === 2">
+
+      <div class="service-card-top">
+
+        <span class="service-icon">🌍</span>
+        <span class="service-number">02</span>
+
+      </div>
+
+      <h3>Languages & International Exams</h3>
+
+      <p class="service-description">
+        Language learning and international exam preparation.
+      </p>
+
+      <button type="button"
+              class="service-toggle"
+              (click)="toggleService(2)">
+
+        {{ openService === 2 ? 'Hide Details' : 'View Details' }}
+
+        <span>
+          {{ openService === 2 ? '−' : '+' }}
+        </span>
+
+      </button>
+
+
+      <div class="service-details"
+           [class.show]="openService === 2">
+
+        <ul>
+          <li>English Courses</li>
+          <li>French Courses</li>
+          <li>DELF Preparation</li>
+          <li>IELTS Preparation</li>
+          <li>Conversation Courses</li>
+          <li>Academic & Professional Language Training</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+
+    <!-- CARD 3 -->
+    <article class="service-card"
+             [class.open]="openService === 3">
+
+      <div class="service-card-top">
+
+        <span class="service-icon">📊</span>
+        <span class="service-number">03</span>
+
+      </div>
+
+      <h3>Thesis, Research & Data Analysis</h3>
+
+      <p class="service-description">
+        Academic research guidance from methodology to defense.
+      </p>
+
+      <button type="button"
+              class="service-toggle"
+              (click)="toggleService(3)">
+
+        {{ openService === 3 ? 'Hide Details' : 'View Details' }}
+
+        <span>
+          {{ openService === 3 ? '−' : '+' }}
+        </span>
+
+      </button>
+
+
+      <div class="service-details"
+           [class.show]="openService === 3">
+
+        <ul>
+          <li>Bachelor & Master Thesis Support</li>
+          <li>Research Methodology</li>
+          <li>Literature Review Support</li>
+          <li>Questionnaire Design</li>
+          <li>SPSS Analysis</li>
+          <li>Statistical Analysis</li>
+          <li>Hypothesis Testing</li>
+          <li>Results Interpretation</li>
+          <li>Thesis Defense PowerPoint</li>
+          <li>Formatting & Referencing</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+
+    <!-- CARD 4 -->
+    <article class="service-card"
+             [class.open]="openService === 4">
+
+      <div class="service-card-top">
+        <span class="service-icon">💼</span>
+        <span class="service-number">04</span>
+      </div>
+
+      <h3>Career & Employability</h3>
+
+      <p class="service-description">
+        Career tools and preparation for stronger job opportunities.
+      </p>
+
+      <button type="button"
+              class="service-toggle"
+              (click)="toggleService(4)">
+
+        {{ openService === 4 ? 'Hide Details' : 'View Details' }}
+
+        <span>
+          {{ openService === 4 ? '−' : '+' }}
+        </span>
+
+      </button>
+
+      <div class="service-details"
+           [class.show]="openService === 4">
+
+        <ul>
+          <li>Professional CV Creation</li>
+          <li>ATS-Friendly CV</li>
+          <li>LinkedIn Optimization</li>
+          <li>Cover Letters</li>
+          <li>Job Application Support</li>
+          <li>Interview Preparation</li>
+          <li>Personal Branding</li>
+          <li>Career Coaching</li>
+          <li>Internship & Placement Support</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+
+    <!-- CARD 5 -->
+    <article class="service-card"
+             [class.open]="openService === 5">
+
+      <div class="service-card-top">
+        <span class="service-icon">📈</span>
+        <span class="service-number">05</span>
+      </div>
+
+      <h3>Business & Professional Skills</h3>
+
+      <p class="service-description">
+        Practical business, leadership, finance, and soft-skills training.
+      </p>
+
+      <button type="button"
+              class="service-toggle"
+              (click)="toggleService(5)">
+
+        {{ openService === 5 ? 'Hide Details' : 'View Details' }}
+
+        <span>
+          {{ openService === 5 ? '−' : '+' }}
+        </span>
+
+      </button>
+
+      <div class="service-details"
+           [class.show]="openService === 5">
+
+        <ul>
+          <li>Accounting Courses</li>
+          <li>Finance Courses</li>
+          <li>Management Courses</li>
+          <li>Entrepreneurship</li>
+          <li>Leadership Training</li>
+          <li>Confidence Building</li>
+          <li>Decision-Making</li>
+          <li>Communication Skills</li>
+          <li>Presentation Skills</li>
+          <li>Soft Skills Training</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+
+    <!-- CARD 6 -->
+    <article class="service-card"
+             [class.open]="openService === 6">
+
+      <div class="service-card-top">
+        <span class="service-icon">💻</span>
+        <span class="service-number">06</span>
+      </div>
+
+      <h3>Technology & AI</h3>
+
+      <p class="service-description">
+        Digital, technical, data, programming, and AI skills.
+      </p>
+
+      <button type="button"
+              class="service-toggle"
+              (click)="toggleService(6)">
+
+        {{ openService === 6 ? 'Hide Details' : 'View Details' }}
+
+        <span>
+          {{ openService === 6 ? '−' : '+' }}
+        </span>
+
+      </button>
+
+      <div class="service-details"
+           [class.show]="openService === 6">
+
+        <ul>
+          <li>Data Analytics Diploma</li>
+          <li>Excel</li>
+          <li>SPSS</li>
+          <li>Power BI</li>
+          <li>Python</li>
+          <li>Programming Foundations</li>
+          <li>Web Development</li>
+          <li>Angular</li>
+          <li>Cybersecurity</li>
+          <li>AI Courses</li>
+          <li>AI Tools Training</li>
+          <li>AI Assistants & Chatbots</li>
+          <li>AI Automation</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+
+    <!-- CARD 7 -->
+    <article class="service-card"
+             [class.open]="openService === 7">
+
+      <div class="service-card-top">
+        <span class="service-icon">🌐</span>
+        <span class="service-number">07</span>
+      </div>
+
+      <h3>Digital & Creative Services</h3>
+
+      <p class="service-description">
+        Digital solutions, websites, presentations, and business materials.
+      </p>
+
+      <button type="button"
+              class="service-toggle"
+              (click)="toggleService(7)">
+
+        {{ openService === 7 ? 'Hide Details' : 'View Details' }}
+
+        <span>
+          {{ openService === 7 ? '−' : '+' }}
+        </span>
+
+      </button>
+
+      <div class="service-details"
+           [class.show]="openService === 7">
+
+        <ul>
+          <li>Website Development</li>
+          <li>Website Design</li>
+          <li>Digital Marketing</li>
+          <li>Social Media Support</li>
+          <li>Professional PowerPoint Design</li>
+          <li>Morph Presentations</li>
+          <li>Pitch Decks</li>
+          <li>Company Profiles</li>
+          <li>Business Proposals</li>
+          <li>Posters & Visual Content</li>
+        </ul>
+
+      </div>
+
+    </article>
+
+
+    <!-- CARD 8 -->
+    <article class="service-card"
+             [class.open]="openService === 8">
+
+      <div class="service-card-top">
+        <span class="service-icon">👩‍🏫</span>
+        <span class="service-number">08</span>
+      </div>
+
+      <h3>Training & Organizational Solutions</h3>
+
+      <p class="service-description">
+        Customized training and capacity-building for teams and organizations.
+      </p>
+
+      <button type="button"
+              class="service-toggle"
+              (click)="toggleService(8)">
+
+        {{ openService === 8 ? 'Hide Details' : 'View Details' }}
+
+        <span>
+          {{ openService === 8 ? '−' : '+' }}
+        </span>
+
+      </button>
+
+      <div class="service-details"
+           [class.show]="openService === 8">
+
+        <ul>
+          <li>Customized Workshops</li>
+          <li>Corporate Training</li>
+          <li>NGO Training</li>
+          <li>Youth Training</li>
+          <li>Training of Trainers</li>
+          <li>AI Workshops</li>
+          <li>Employability Workshops</li>
+          <li>Leadership Workshops</li>
+          <li>Capacity-Building Programs</li>
+          <li>Employee Skills Development</li>
+        </ul>
+
+      </div>
+
+    </article>
 
   </div>
 

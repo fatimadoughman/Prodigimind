@@ -3,17 +3,20 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
-    imports: [RouterLink, RouterLinkActive],
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
 
   constructor() { }
- isactive=true;
-  ngOnInit() {
-  }
+
+  isactive = true;
   menuOpen = false;
+  activeSection = 'home';
+
+  ngOnInit() { }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -22,21 +25,21 @@ export class NavbarComponent implements OnInit {
   closeMenu() {
     this.menuOpen = false;
   }
-scrollToCourses() {
-  document.getElementById('courses')?.scrollIntoView({
-    behavior: 'smooth'
-  });
-}
-activeSection = 'home';
 
-scrollTo(sectionId: string) {
-  this.activeSection = sectionId;
+  scrollToCourses() {
+    document.getElementById('courses')?.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
 
-  document.getElementById(sectionId)?.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  });
+  scrollTo(sectionId: string) {
+    this.activeSection = sectionId;
 
-  this.closeMenu();
-}
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+    this.closeMenu();
+  }
 }

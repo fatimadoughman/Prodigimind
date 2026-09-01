@@ -1,56 +1,516 @@
 
 <section class="home-page">
-  <div class="hero-card">
 
-    <div class="hero-top">
-      <div class="hero-text">
-        <h1>
-          Empowering Future
+  <!-- =========================
+       HERO
+  ========================== -->
+  <section class="hero-section">
 
-          <span>Leaders Globally</span>
-        </h1>
+    <div class="hero-card">
 
-        <p>
-          Courses, project support, tutoring, career services,
-          and smart learning tools for university students.
-        </p>
+      <div class="hero-top">
 
-        <div class="hero-actions">
-          <a class="main-btn" routerLink="/servicess">
-  Explore Services
-  <span class="arrow">➜</span>
-</a>
-          <a class="outline-btn"  href="https://form.jotform.com/260413864691057?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAdGRleASeG1JleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaf7Fe914R_pf_nZ_agsS_tOyPunbEBHjwQ3nYXbXrdW0M7cKeqBx03pDh9mMA_aem_YWdncwBPG3f2Tbq1SEkUIbEXPooY&brid=YWdncwEdYzbj8JXIGMRJ2kXYXRaT">Book a Session<span class="arrow">➜</span></a>
+        <!-- LEFT SIDE -->
+        <div class="hero-text">
+
+          <span class="small-title">
+            LEARN. GROW. ACHIEVE.
+          </span>
+
+          <h1>
+            Empowering Future
+            <span>Leaders Globally</span>
+          </h1>
+
+          <p>
+            Courses, project support, tutoring, career services,
+            and smart learning tools for university students.
+          </p>
+
+          <!-- HERO BUTTONS -->
+          <div class="hero-actions">
+
+            <a class="main-btn"
+               routerLink="/servicess">
+              Explore Services
+              <span class="arrow">➜</span>
+            </a>
+
+            <a class="outline-btn"
+               href="https://form.jotform.com/260413864691057"
+               target="_blank">
+              Book a Session
+              <span class="arrow">➜</span>
+            </a>
+
+          </div>
+
+          <!-- STUDENT PHOTOS -->
+          <div class="hero-students">
+
+            <div class="student-avatars">
+
+              <img src="images/student1.jpeg" alt="Student 1">
+              <img src="images/student2.jpeg" alt="Student 2">
+              <img src="images/student3.jpeg" alt="Student 3">
+              <img src="images/student4.jpeg" alt="Student 4">
+
+            </div>
+
+            <div class="students-text">
+
+              <p>
+                Join <strong>2,000+ students</strong><br>
+                achieving their goals
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
+
+
+        <!-- RIGHT SIDE CHARACTER -->
+        <div class="hero-character-wrap">
+
+          <div class="character-glow"></div>
+
+          <img src="images/prodigimind-character.png"
+               alt="Prodigi Mind Assistant"
+               class="character-image"
+               id="prodigiCharacter">
+
+        </div>
+
       </div>
 
-      <div class="hero-image">
-        <img src="images/home.jpeg" alt="ProdigiMind students">
-      </div>
     </div>
 
-    <div class="stats">
-      <div class="stat-card">
-        <h3>1000+</h3>
-        <p>students supported</p>
-      </div>
+  </section>
 
-      <div class="stat-card">
-        <h3>40+</h3>
-        <p>expert tutors</p>
-      </div>
 
-      <div class="stat-card">
-        <h3>95%</h3>
-        <p>success rate</p>
-      </div>
+  <!-- =========================
+       STATISTICS
+  ========================== -->
+  <section class="stats-section">
 
-      <div class="stat-card">
-        <h3>50+</h3>
-        <p>completed projects</p>
-      </div>
+    <div class="stat-card">
+      <h3>1000+</h3>
+      <p>students supported</p>
     </div>
 
-  </div>
+    <div class="stat-card">
+      <h3>40+</h3>
+      <p>expert tutors</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>95%</h3>
+      <p>success rate</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>50+</h3>
+      <p>completed projects</p>
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       COURSES & TRAINING
+  ========================== -->
+  <section class="courses-preview">
+
+    <div class="courses-top">
+
+      <div class="section-heading">
+
+        <span>COURSES & TRAINING</span>
+
+        <h2>
+          Upgrade Your Skills.
+        </h2>
+
+        <p>
+          Practical training designed to turn knowledge into real opportunities.
+        </p>
+
+      </div>
+
+
+      <!-- ARROWS - TOP RIGHT -->
+      <div class="course-controls">
+
+        <button type="button"
+                class="course-arrow"
+                (click)="scrollCourses('left')"
+                aria-label="Previous course">
+          ←
+        </button>
+
+        <button type="button"
+                class="course-arrow"
+                (click)="scrollCourses('right')"
+                aria-label="Next course">
+          →
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- COURSE CAROUSEL -->
+    <div class="course-carousel">
+
+      <div class="course-slider">
+
+        <!-- COURSE 1 -->
+        <article class="course-card">
+
+          <span class="course-tag">
+            Training
+          </span>
+
+          <h3>
+            Digital Marketing
+          </h3>
+
+          <p>
+            Practical digital marketing skills with
+            internship opportunities.
+          </p>
+
+          <div class="course-price">
+
+            <span class="old-price">
+              $80
+            </span>
+
+            <span class="new-price">
+              $50
+            </span>
+
+          </div>
+
+          <a routerLink="/courses">
+            Discover Course →
+          </a>
+
+        </article>
+
+
+        <!-- COURSE 2 -->
+        <article class="course-card">
+
+          <span class="course-tag">
+            Professional
+          </span>
+
+          <h3>
+            Data Analytics
+          </h3>
+
+          <p>
+            Learn how to transform data into meaningful
+            business insights.
+          </p>
+
+          <div class="course-price">
+
+            <span class="old-price">
+              $450
+            </span>
+
+            <span class="new-price">
+              $350
+            </span>
+
+          </div>
+
+          <a routerLink="/courses">
+            Discover Course →
+          </a>
+
+        </article>
+
+
+        <!-- COURSE 3 -->
+        <article class="course-card">
+
+          <span class="course-tag">
+            Training
+          </span>
+
+          <h3>
+            Finance & Accounting
+          </h3>
+
+          <p>
+            Applied financial and accounting training
+            for real work environments.
+          </p>
+
+          <div class="course-price">
+
+            <span class="old-price">
+              $450
+            </span>
+
+            <span class="new-price">
+              $350
+            </span>
+
+          </div>
+
+          <a routerLink="/courses">
+            Discover Course →
+          </a>
+
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         COURSES MOVING STRIP
+    ========================== -->
+    <div class="courses-moving-strip">
+
+      <div class="moving-track">
+
+        <span>COURSES</span>
+        <b>✦</b>
+
+        <span>LEARN</span>
+        <b>✦</b>
+
+        <span>GROW</span>
+        <b>✦</b>
+
+        <span>ACHIEVE</span>
+        <b>✦</b>
+
+        <span>BUILD YOUR FUTURE</span>
+        <b>✦</b>
+
+        <span>PRODIGI MIND</span>
+        <b>✦</b>
+
+        <!-- REPEAT -->
+
+        <span>COURSES</span>
+        <b>✦</b>
+
+        <span>LEARN</span>
+        <b>✦</b>
+
+        <span>GROW</span>
+        <b>✦</b>
+
+        <span>ACHIEVE</span>
+        <b>✦</b>
+
+        <span>BUILD YOUR FUTURE</span>
+        <b>✦</b>
+
+        <span>PRODIGI MIND</span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       STUDENT FEEDBACK
+  ========================== -->
+  <section class="feedback-section">
+
+    <div class="feedback-top">
+
+      <div class="section-heading">
+
+        <span>SUCCESS STORIES</span>
+
+        <h2>
+          Real Students. Real Results.
+        </h2>
+
+        <p>
+          Hear directly from students who learned, grew,
+          and achieved with Prodigi Mind.
+        </p>
+
+      </div>
+
+
+      <div class="feedback-controls">
+
+        <button type="button"
+                class="feedback-arrow"
+                (click)="scrollFeedbacks('left')"
+                aria-label="Previous feedback">
+          ←
+        </button>
+
+        <button type="button"
+                class="feedback-arrow"
+                (click)="scrollFeedbacks('right')"
+                aria-label="Next feedback">
+          →
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="feedback-slider">
+
+      <!-- FEEDBACK 1 -->
+      <article class="feedback-card-new">
+
+        <div class="feedback-header">
+
+          <div class="feedback-avatar-new">
+            NA
+          </div>
+
+          <div>
+            <h4>Nour Abou Jaoude</h4>
+            <span>Business Administration Student</span>
+          </div>
+
+          <div class="quote-mark">
+            “
+          </div>
+
+        </div>
+
+        <div class="feedback-stars">
+          ★★★★★
+        </div>
+
+        <p>
+          Prodigi Mind helped me improve my grades and gave me
+          the confidence I needed.
+        </p>
+
+      </article>
+
+
+      <!-- FEEDBACK 2 -->
+      <article class="feedback-card-new">
+
+        <div class="feedback-header">
+
+          <div class="feedback-avatar-new">
+            MK
+          </div>
+
+          <div>
+            <h4>Mohamad K.</h4>
+            <span>University Student</span>
+          </div>
+
+          <div class="quote-mark">
+            “
+          </div>
+
+        </div>
+
+        <div class="feedback-stars">
+          ★★★★★
+        </div>
+
+        <p>
+          The tutors made difficult concepts much easier and
+          always supported me when I needed help.
+        </p>
+
+      </article>
+
+
+      <!-- FEEDBACK 3 -->
+      <article class="feedback-card-new">
+
+        <div class="feedback-header">
+
+          <div class="feedback-avatar-new">
+            SR
+          </div>
+
+          <div>
+            <h4>Sara R.</h4>
+            <span>Training Student</span>
+          </div>
+
+          <div class="quote-mark">
+            “
+          </div>
+
+        </div>
+
+        <div class="feedback-stars">
+          ★★★★★
+        </div>
+
+        <p>
+          The practical training gave me skills I could actually
+          use outside the classroom.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FINAL CTA
+  ========================== -->
+  <section class="final-cta">
+
+    <div class="final-cta-text">
+
+      <span>
+        READY?
+      </span>
+
+      <h2>
+        Ready to Take the Next Step?
+      </h2>
+
+      <p>
+        Book a session today and start your
+        journey toward success.
+      </p>
+
+    </div>
+
+
+    <div class="cta-buttons">
+
+      <a class="cta-book"
+         href="https://form.jotform.com/260413864691057"
+         target="_blank">
+        Book a Session →
+      </a>
+
+      <a class="cta-contact"
+         routerLink="/contact-us">
+        Contact Us →
+      </a>
+
+    </div>
+
+  </section>
+
 </section>

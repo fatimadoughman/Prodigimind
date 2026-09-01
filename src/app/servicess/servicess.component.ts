@@ -8,6 +8,12 @@ import { RouterLink } from '@angular/router';
 
 })
 export class ServicessComponent implements OnInit {
+    openService: number | null = null;
+
+  toggleService(index: number) {
+    this.openService =
+      this.openService === index ? null : index;
+  }
 
   constructor() { }
 
