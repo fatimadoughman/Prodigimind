@@ -482,64 +482,7 @@
    MOBILE
 ========================================= */
 
-@media (max-width: 600px) {
 
-  .courses-preview {
-    width: 100%;
-    padding: 0 0 0 22px;
-    margin-bottom: 35px;
-  }
-
-  .courses-top {
-    padding-right: 22px;
-  }
-
-  .course-carousel {
-    gap: 9px;
-  }
-
-  .course-arrow {
-    width: 40px;
-    height: 40px;
-    flex: 0 0 40px;
-    font-size: 18px;
-  }
-
-  .course-slider {
-    gap: 14px;
-    padding-right: 22px;
-  }
-
-  .course-card {
-    flex: 0 0 84%;
-    min-height: 320px;
-    padding: 25px;
-    border-radius: 24px;
-  }
-
-    .course-card h3 {
-      font-size: 23px;
-    }
-
-    .course-card p {
-      min-height: auto;
-    }
-
-  .prodigi-marquee {
-    margin: 12px 0 60px;
-    padding: 8px 0;
-  }
-
-  .marquee-content {
-    gap: 18px;
-    padding-right: 18px;
-  }
-
-    .marquee-content span {
-      font-size: 11px;
-      letter-spacing: 1.3px;
-    }
-}
 
 /* =========================================
    STUDENT FEEDBACK
@@ -753,125 +696,14 @@
    SAME IDEA AS YOUR SCREENSHOT
 ========================================= */
 
-@media (max-width: 600px) {
 
-  .hero-card {
-    padding: 22px;
-  }
-
-  .hero-top {
-    gap: 28px;
-  }
-
-  .small-title {
-    font-size: 11px;
-  }
-
-  .hero-text h1 {
-    font-size: 38px;
-  }
-
-  .hero-text p {
-    font-size: 15px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    margin-top: 28px;
-  }
-
-  .main-btn,
-  .outline-btn {
-    width: 100%;
-    max-width: 340px;
-  }
-
-  .hero-image img {
-    width: 100%;
-    height: 210px;
-    border-radius: 28px;
-    object-fit: cover;
-  }
-
-
-  /* 2 CARDS + 2 CARDS */
-
-  .stats-section {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin: 50px auto 65px;
-    padding: 0 22px;
-  }
-
-  .stat-card {
-    min-height: 190px;
-    padding: 20px 10px;
-    border-radius: 30px;
-  }
-
-    .stat-card h3 {
-      margin-bottom: 16px;
-      font-size: 44px;
-    }
-
-    .stat-card p {
-      font-size: 15px;
-    }
-
-
-  .courses-preview,
-  .feedback-section {
-    width: calc(100% - 44px);
-  }
-
-  .section-heading h2 {
-    font-size: 32px;
-  }
-
-  .final-cta {
-    width: calc(100% - 44px);
-    padding: 30px 24px;
-  }
-
-  .cta-buttons {
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .cta-book,
-  .cta-contact {
-    width: 100%;
-  }
-}
 
 
 /* =========================================
    SMALL MOBILE
 ========================================= */
 
-@media (max-width: 390px) {
 
-  .hero-text h1 {
-    font-size: 34px;
-  }
-
-  .stats-section {
-    gap: 12px;
-    padding: 0 16px;
-  }
-
-  .stat-card {
-    min-height: 165px;
-  }
-
-    .stat-card h3 {
-      font-size: 36px;
-    }
-
-    .stat-card p {
-      font-size: 13px;
-    }
-}
 
 
 /* =========================================
@@ -956,32 +788,7 @@
 
 /* MOBILE */
 
-@media (max-width: 600px) {
 
-  .hero-students {
-    align-items: center !important;
-  }
-
-  .student-avatars {
-    flex-direction: row !important;
-    justify-content: center !important;
-  }
-
-    .student-avatars img {
-      width: 46px !important;
-      height: 46px !important;
-      min-width: 46px !important;
-      margin-left: -10px !important;
-    }
-
-      .student-avatars img:first-child {
-        margin-left: 0 !important;
-      }
-
-  .students-text {
-    text-align: center !important;
-  }
-}
 /* COURSE SWIPE - NO ARROWS */
 
 .course-slider {
@@ -1004,11 +811,7 @@
   scroll-snap-align: start !important;
 }
 
-@media (max-width: 600px) {
-  .course-card {
-    flex: 0 0 86% !important;
-  }
-}
+
 /* =========================================
    PRODIGI COURSES MOVING STRIP
    PREMIUM / THIN / SMOOTH
@@ -1097,28 +900,7 @@
    MOBILE
 ========================================= */
 
-@media (max-width: 600px) {
 
-  .courses-moving-strip {
-    height: 38px;
-    margin-top: 20px;
-    border-radius: 11px;
-  }
-
-  .moving-track span {
-    font-size: 9px;
-    letter-spacing: 1.5px;
-  }
-
-  .moving-track b {
-    margin: 0 16px;
-    font-size: 8px;
-  }
-
-  .moving-track {
-    animation-duration: 20s;
-  }
-}
 /* =========================================
    FEEDBACK - PRO HORIZONTAL DESIGN
 ========================================= */
@@ -1308,57 +1090,7 @@
 
 /* MOBILE */
 
-@media (max-width: 600px) {
 
-  .feedback-section {
-    padding: 0 0 0 22px;
-    margin-bottom: 70px;
-  }
-
-  .feedback-top {
-    padding-right: 22px;
-  }
-
-  .feedback-controls {
-    gap: 8px;
-  }
-
-  .feedback-arrow {
-    width: 39px;
-    height: 39px;
-    font-size: 18px;
-  }
-
-  .feedback-slider {
-    gap: 14px;
-    padding-right: 30px;
-  }
-
-  .feedback-card-new {
-    flex: 0 0 86%;
-    min-height: 285px;
-    padding: 23px;
-    border-radius: 24px;
-  }
-
-  .feedback-avatar-new {
-    width: 50px;
-    height: 50px;
-    flex-basis: 50px;
-  }
-
-  .feedback-header h4 {
-    font-size: 17px;
-  }
-
-  .feedback-stars {
-    font-size: 18px;
-  }
-
-  .feedback-card-new > p {
-    font-size: 14px;
-  }
-}
 /* =========================================
    FINAL CTA - PREMIUM PRO VERSION
 ========================================= */
@@ -1514,44 +1246,7 @@
    MOBILE
 ========================================= */
 
-@media (max-width: 600px) {
 
-  .final-cta {
-    width: calc(100% - 32px);
-    padding: 20px;
-    margin-bottom: 34px;
-    border-radius: 18px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-    .final-cta::before {
-      left: 20px;
-      width: 55px;
-    }
-
-    .final-cta h2 {
-      font-size: 22px;
-    }
-
-    .final-cta p {
-      font-size: 12px;
-    }
-
-  .cta-buttons {
-    width: 100%;
-    gap: 8px;
-  }
-
-  .cta-book,
-  .cta-contact {
-    flex: 1;
-    min-height: 40px;
-    padding: 0 12px;
-    font-size: 12px;
-  }
-}
 
 /* =========================================
    COURSE SLIDER - FINAL CLEAN SIZING
@@ -1605,30 +1300,7 @@
   }
 }
 
-@media (max-width: 600px) {
-  .course-slider {
-    gap: 14px;
-    padding-right: 22px;
-  }
 
-  .course-card {
-    flex: 0 0 86%;
-    width: auto;
-    max-width: none;
-    min-height: 320px;
-    height: auto;
-    padding: 25px;
-    border-radius: 24px;
-  }
-
-  .course-card h3 {
-    font-size: 23px;
-  }
-
-  .course-card p {
-    min-height: auto;
-  }
-}
 
 /* =========================================
    HERO CHARACTER - CLEAN RESPONSIVE VERSION
@@ -1733,50 +1405,108 @@
    PHONE - STATIC ORIGINAL CHARACTER ONLY
 ========================================= */
 
+
+
+/* Extra-small phones */
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .character-image,
+  .character-pupil {
+    transition: none !important;
+  }
+}
+
+/* =========================================
+   FINAL MOBILE WIDTH / CENTERING FIX
+   Keep this block at the END of this file.
+========================================= */
+
+/* =========================================================
+   ONE CLEAN MOBILE SYSTEM — DO NOT ADD OTHER PHONE QUERIES
+========================================================= */
+
 @media (max-width: 600px) {
 
-  /* Prevent anything in the hero from creating horizontal overflow */
+  :host,
+  .home-page,
   .hero-section,
   .hero-card,
   .hero-top,
   .hero-text,
   .hero-actions,
-  .hero-character-wrap {
-    min-width: 0 !important;
-    max-width: 100% !important;
+  .hero-character-wrap,
+  .stats-section,
+  .courses-preview,
+  .feedback-section,
+  .final-cta {
     box-sizing: border-box !important;
+    min-width: 0 !important;
+  }
+
+  :host,
+  .home-page {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
 
   .hero-card {
-    padding: 18px 14px 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 18px 16px 10px !important;
+    overflow: hidden !important;
   }
 
   .hero-top {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
   }
 
   .hero-text {
     width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
     text-align: center !important;
   }
 
   .small-title {
-    margin-bottom: 12px !important;
+    margin: 0 0 11px !important;
     font-size: 9px !important;
-    letter-spacing: 1.5px !important;
+    letter-spacing: 1.4px !important;
   }
 
   .hero-text h1 {
     width: 100% !important;
     max-width: 100% !important;
-    margin: 0 auto 16px !important;
+    margin: 0 auto 14px !important;
     padding: 0 !important;
-    font-size: clamp(25px, 8.2vw, 31px) !important;
-    line-height: 1.03 !important;
-    letter-spacing: -0.7px !important;
-    overflow-wrap: normal !important;
+    font-size: 28px !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.6px !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    word-break: normal !important;
   }
 
   .hero-text h1 span {
@@ -1787,42 +1517,55 @@
     width: 100% !important;
     max-width: 330px !important;
     margin: 0 auto !important;
-    padding: 0 4px !important;
+    padding: 0 !important;
     font-size: 12px !important;
     line-height: 1.55 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
   }
 
   .hero-actions {
     width: 100% !important;
-    margin-top: 18px !important;
+    max-width: 330px !important;
+    margin: 18px auto 0 !important;
     padding: 0 !important;
+    display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: stretch !important;
     gap: 9px !important;
   }
 
   .main-btn,
   .outline-btn {
-    width: min(100%, 320px) !important;
-    max-width: 100% !important;
-    min-height: 45px !important;
-    padding: 0 18px !important;
-    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 44px !important;
+    padding: 0 16px !important;
     font-size: 12px !important;
+    box-sizing: border-box !important;
   }
 
+  /* ---------- STUDENTS ---------- */
+
   .hero-students {
-    margin-top: 14px !important;
+    width: 100% !important;
+    margin: 14px auto 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
     gap: 6px !important;
   }
 
+  .student-avatars {
+    justify-content: center !important;
+  }
+
   .student-avatars img {
-    width: 39px !important;
-    height: 39px !important;
-    min-width: 39px !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    margin-left: -7px !important;
     border-width: 2px !important;
-    margin-left: -8px !important;
   }
 
   .student-avatars img:first-child {
@@ -1830,104 +1573,260 @@
   }
 
   .students-text {
+    width: 100% !important;
     text-align: center !important;
   }
 
   .students-text p {
-    font-size: 11px !important;
+    font-size: 10.5px !important;
     line-height: 1.35 !important;
   }
 
-  /* Phone: do not use the animated-eye layers */
+  /* ---------- CHARACTER ---------- */
+
   .animated-character {
     display: none !important;
   }
 
-  /* Phone: show the original complete picture */
-  .character-mobile {
-    display: block !important;
-    width: 190px !important;
-    max-width: 62vw !important;
-    height: auto !important;
-    margin: 0 auto !important;
-    position: relative;
-    z-index: 2;
-    object-fit: contain;
-    filter: drop-shadow(0 12px 22px rgba(23, 38, 77, 0.13));
-  }
-
   .hero-character-wrap {
     width: 100% !important;
-    margin: 5px auto 0 !important;
-    min-height: 0 !important;
+    max-width: 100% !important;
+    margin: 4px auto 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+  }
+
+  .character-mobile {
+    display: block !important;
+    width: 180px !important;
+    max-width: 58vw !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    object-fit: contain !important;
+    z-index: 2 !important;
   }
 
   .character-glow {
-    width: 165px !important;
-    height: 165px !important;
+    width: 160px !important;
+    height: 160px !important;
   }
 
-  /* Make the first statistics row fit neatly on narrow screens */
+  /* ---------- STATS ---------- */
+
   .stats-section {
     width: 100% !important;
-    margin: 28px auto 55px !important;
+    max-width: 100% !important;
+    margin: 26px auto 52px !important;
     padding: 0 14px !important;
+    display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 10px !important;
-    box-sizing: border-box !important;
   }
 
   .stat-card {
     min-width: 0 !important;
-    min-height: 135px !important;
+    min-height: 130px !important;
     padding: 16px 8px !important;
     border-radius: 20px !important;
   }
 
   .stat-card h3 {
-    margin-bottom: 10px !important;
-    font-size: 31px !important;
+    margin: 0 0 9px !important;
+    font-size: 30px !important;
   }
 
   .stat-card p {
     font-size: 10px !important;
   }
+
+  /* ---------- SECTION HEADINGS ---------- */
+
+  .section-heading {
+    margin-bottom: 22px !important;
+  }
+
+  .section-heading > span {
+    font-size: 10px !important;
+  }
+
+  .section-heading h2 {
+    font-size: 27px !important;
+    line-height: 1.12 !important;
+  }
+
+  .section-heading p {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* ---------- COURSES ---------- */
+
+  .courses-preview {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 36px !important;
+    padding: 0 0 0 16px !important;
+  }
+
+  .courses-top {
+    padding-right: 16px !important;
+  }
+
+  .course-slider {
+    width: 100% !important;
+    gap: 12px !important;
+    padding: 6px 16px 18px 0 !important;
+  }
+
+  .course-card {
+    flex: 0 0 86% !important;
+    width: auto !important;
+    max-width: none !important;
+    min-height: 285px !important;
+    padding: 21px !important;
+    border-radius: 22px !important;
+  }
+
+  .course-card h3 {
+    font-size: 21px !important;
+  }
+
+  .course-card p {
+    min-height: auto !important;
+    font-size: 13px !important;
+  }
+
+  .new-price {
+    font-size: 24px !important;
+  }
+
+  .courses-moving-strip {
+    height: 36px !important;
+    margin-top: 16px !important;
+    border-radius: 10px !important;
+  }
+
+  .moving-track span {
+    font-size: 8.5px !important;
+  }
+
+  .moving-track b {
+    margin: 0 14px !important;
+    font-size: 7px !important;
+  }
+
+  /* ---------- FEEDBACK ---------- */
+
+  .feedback-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 60px !important;
+    padding: 0 0 0 16px !important;
+  }
+
+  .feedback-top {
+    padding-right: 16px !important;
+  }
+
+  .feedback-slider {
+    gap: 12px !important;
+    padding: 6px 16px 20px 0 !important;
+  }
+
+  .feedback-card-new {
+    flex: 0 0 88% !important;
+    min-height: 260px !important;
+    padding: 20px !important;
+    border-radius: 22px !important;
+  }
+
+  .feedback-avatar-new {
+    width: 46px !important;
+    height: 46px !important;
+    flex-basis: 46px !important;
+  }
+
+  .feedback-header h4 {
+    font-size: 16px !important;
+  }
+
+  .feedback-stars {
+    margin: 18px 0 14px !important;
+    font-size: 17px !important;
+  }
+
+  .feedback-card-new > p {
+    font-size: 13px !important;
+  }
+
+  /* ---------- FINAL CTA ---------- */
+
+  .final-cta {
+    width: calc(100% - 28px) !important;
+    max-width: none !important;
+    margin: 0 14px 30px !important;
+    padding: 20px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 15px !important;
+    border-radius: 18px !important;
+  }
+
+  .final-cta h2 {
+    font-size: 21px !important;
+  }
+
+  .final-cta p {
+    font-size: 12px !important;
+  }
+
+  .cta-buttons {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .cta-book,
+  .cta-contact {
+    width: 100% !important;
+    min-height: 40px !important;
+    font-size: 12px !important;
+    box-sizing: border-box !important;
+  }
 }
 
-/* Extra-small phones */
 @media (max-width: 390px) {
   .hero-card {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
   }
 
   .hero-text h1 {
-    font-size: clamp(23px, 7.8vw, 28px) !important;
+    font-size: 25px !important;
   }
 
   .hero-text p {
-    max-width: 290px !important;
+    max-width: 285px !important;
     font-size: 11px !important;
   }
 
+  .hero-actions {
+    max-width: 295px !important;
+  }
+
   .character-mobile {
-    width: 175px !important;
-    max-width: 60vw !important;
-  }
-
-  .main-btn,
-  .outline-btn {
-    width: min(100%, 295px) !important;
-  }
-}
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .character-image,
-  .character-pupil {
-    transition: none !important;
+    width: 165px !important;
+    max-width: 56vw !important;
   }
 }
