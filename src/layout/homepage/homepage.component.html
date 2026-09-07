@@ -72,17 +72,56 @@
 
 
         <!-- RIGHT SIDE CHARACTER -->
-        <div class="hero-character-wrap">
+        <!-- <div class="hero-character-wrap">
 
           <div class="character-glow"></div>
 
-          <img src="images/prodigimind-character.png"
+          <img src="images/prodigimind-character.png" id="leftEyeMove"
+          id="rightEyeMove"
+          (mousemove)="moveCharacter($event)"
+(mouseleave)="resetCharacter($event)"
                alt="Prodigi Mind Assistant"
                class="character-image"
                id="prodigiCharacter">
 
-        </div>
+        </div> -->
+<div
+  class="hero-character-wrap"
+  (mousemove)="moveCharacter($event)"
+  (mouseleave)="resetCharacter()"
+>
+  <div class="character-glow"></div>
 
+  <!-- LAPTOP + TABLET: animated eyes -->
+  <div class="animated-character">
+    <img
+      src="images/prodigimind-character-no-pupils.png"
+      class="character-image"
+      alt="Prodigi Mind Assistant"
+    />
+
+    <img
+      src="images/pupil.png"
+      id="leftEyeMove"
+      class="character-pupil left-pupil"
+      alt=""
+    />
+
+    <img
+      src="images/pupil.png"
+      id="rightEyeMove"
+      class="character-pupil right-pupil"
+      alt=""
+    />
+  </div>
+
+  <!-- PHONE: original picture only -->
+  <img
+    src="images/prodigimind-character.png"
+    class="character-mobile"
+    alt="Prodigi Mind Assistant"
+  />
+</div>
       </div>
 
     </div>
@@ -141,7 +180,7 @@
 
 
       <!-- ARROWS - TOP RIGHT -->
-      <div class="course-controls">
+      <!-- <div class="course-controls">
 
         <button type="button"
                 class="course-arrow"
@@ -157,7 +196,7 @@
           →
         </button>
 
-      </div>
+      </div> -->
 
     </div>
 
@@ -350,7 +389,7 @@
       </div>
 
 
-      <div class="feedback-controls">
+      <!-- <div class="feedback-controls">
 
         <button type="button"
                 class="feedback-arrow"
@@ -366,7 +405,7 @@
           →
         </button>
 
-      </div>
+      </div> -->
 
     </div>
 

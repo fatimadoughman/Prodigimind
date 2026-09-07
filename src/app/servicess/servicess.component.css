@@ -3,13 +3,13 @@
   min-height: 100vh;
   padding: clamp(40px, 7vw, 90px) clamp(14px, 6vw, 8%);
 
-  background:
+  /* background:
     radial-gradient(
       circle at top left,
       rgba(249, 145, 22, 0.13),
       transparent 35%
     ),
-    linear-gradient(180deg, #ffffff, #f9f8f8);
+    linear-gradient(180deg, #ffffff, #f9f8f8); */
 }
 
 /* =========================

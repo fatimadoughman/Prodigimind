@@ -1,5 +1,10 @@
 <nav class="navbar">
-  <div class="logo">ProdigiMind</div>
+  <div class="logo"><a
+  routerLink="/homepage"
+  routerLinkActive="active-link"
+  [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
+  ProdigiMind
+</a></div>
 
   <div class="nav-links" [class.active]="menuOpen">
     <!-- <a

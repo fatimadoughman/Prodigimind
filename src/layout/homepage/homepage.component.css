@@ -1552,269 +1552,148 @@
     font-size: 12px;
   }
 }
-/* =========================
-   HERO CHARACTER + EYES
-========================= */
 
-.hero-character-wrap {
-  position: relative;
-  width: 260px;
-  max-width: 100%;
-  margin: 0 auto;
+/* =========================================
+   COURSE SLIDER - FINAL CLEAN SIZING
+========================================= */
+
+.course-slider {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-.character-image {
-  width: 100%;
-  max-width: 235px;
-  height: auto;
-  display: block;
-  position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 16px 26px rgba(23, 38, 77, 0.16));
-  transition: transform 0.15s ease-out;
+.course-slider::-webkit-scrollbar {
+  display: none;
 }
 
-.character-glow {
-  position: absolute;
-  width: 210px;
-  height: 210px;
-  top: 32px;
-  border-radius: 50%;
-  background: radial-gradient( circle, rgba(249, 145, 22, 0.18) 0%, rgba(23, 38, 77, 0.05) 48%, transparent 72% );
-  filter: blur(10px);
-  z-index: 1;
+@media (min-width: 901px) {
+  .course-card {
+    flex: 0 0 390px;
+    width: 390px;
+    max-width: 390px;
+    min-height: 270px;
+    padding: 24px;
+  }
+
+  .course-card h3 {
+    font-size: 22px;
+  }
+
+  .course-card p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .new-price {
+    font-size: 26px;
+  }
+
+  .course-card > a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .course-card {
+    flex: 0 0 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  .course-slider {
+    gap: 14px;
+    padding-right: 22px;
+  }
+
+  .course-card {
+    flex: 0 0 86%;
+    width: auto;
+    max-width: none;
+    min-height: 320px;
+    height: auto;
+    padding: 25px;
+    border-radius: 24px;
+  }
+
+  .course-card h3 {
+    font-size: 23px;
+  }
+
+  .course-card p {
+    min-height: auto;
+  }
 }
 
 
-
-
-
+/* =========================================
+   HERO CHARACTER - FINAL CLEAN VERSION
+========================================= */
 
 .hero-character-wrap {
   position: relative;
-  width: 300px;
+  width: 470px;
   max-width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   perspective: 900px;
+  isolation: isolate;
+}
+
+.character-glow {
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(249, 145, 22, 0.18) 0%,
+    rgba(249, 145, 22, 0.10) 30%,
+    rgba(23, 38, 77, 0.05) 52%,
+    transparent 74%
+  );
+  filter: blur(14px);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .character-image {
-  width: 100%;
-  max-width: 275px;
-  height: auto;
   display: block;
-  position: relative;
-  z-index: 2;
-  transform-origin: 50% 35%;
-  transition: transform 0.12s ease-out, filter 0.2s ease;
-  filter: drop-shadow(0 16px 26px rgba(23, 38, 77, 0.16));
-  will-change: transform;
-}
-
-@media (max-width: 600px) {
-
-  .hero-character-wrap {
-    width: 245px;
-  }
-
-  .character-image {
-    max-width: 225px;
-  }
-}
-
-
-
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-  .hero-character-wrap {
-    width: 245px;
-  }
-
-  .character-image {
-    max-width: 225px;
-  }
-}
-/* =========================
-   SMALLER COURSE CARDS - LAPTOP
-========================= */
-
-@media (min-width: 901px) {
-
-  .course-slider {
-    gap: 16px;
-    padding: 8px 0 22px;
-  }
-
-  .course-card {
-    flex: 0 0 31%;
-    min-height: 245px;
-    padding: 20px 22px;
-    border-radius: 22px;
-  }
-
-    .course-card h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .course-card p {
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-  .course-price {
-    margin-top: 18px;
-  }
-
-  .new-price {
-    font-size: 24px;
-  }
-
-  .old-price {
-    font-size: 13px;
-  }
-
-  .course-card a {
-    font-size: 13px;
-  }
-}
-/* =========================
-   COMPACT COURSE CARDS - LAPTOP
-========================= */
-
-@media (min-width: 901px) {
-
-  .course-slider {
-    gap: 14px;
-    padding: 6px 0 16px;
-  }
-
-  .course-card {
-    flex: 0 0 30%;
-    min-height: 190px !important;
-    height: auto !important;
-    padding: 16px 18px !important;
-    border-radius: 18px !important;
-  }
-
-  .course-tag {
-    font-size: 10px !important;
-    padding: 6px 10px !important;
-  }
-
-  .course-card h3 {
-    font-size: 18px !important;
-    margin: 12px 0 8px !important;
-  }
-
-  .course-card p {
-    font-size: 12px !important;
-    line-height: 1.4 !important;
-    margin-bottom: 12px !important;
-  }
-
-  .course-price {
-    margin-top: 12px !important;
-    margin-bottom: 10px !important;
-  }
-
-  .old-price {
-    font-size: 12px !important;
-  }
-
-  .new-price {
-    font-size: 21px !important;
-  }
-
-  .course-card a {
-    font-size: 12px !important;
-  }
-}
-/* =========================================
-   FINAL COURSE SIZE - LAPTOP
-========================================= */
-
-@media (min-width: 901px) {
-
-  .course-card {
-    flex: 0 0 390px !important;
-    width: 390px !important;
-    max-width: 390px !important;
-    min-height: 270px !important;
-    height: 270px !important;
-    padding: 24px !important;
-  }
-
-    .course-card h3 {
-      font-size: 22px !important;
-    }
-
-    .course-card p {
-      font-size: 14px !important;
-      line-height: 1.55 !important;
-    }
-
-  .new-price {
-    font-size: 26px !important;
-  }
-
-  .course-card a {
-    font-size: 14px !important;
-  }
-}
-.hero-character-wrap {
-  position: relative;
-  width: 340px;
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 800px;
-}
-
-.character-image {
   width: 100%;
-  max-width: 315px;
+  max-width: 450px;
   height: auto;
-  display: block;
   position: relative;
   z-index: 2;
   transform: translate3d(0, 0, 0);
   transform-origin: 50% 38%;
-  transition: transform 0.10s ease-out;
+  transition: transform 0.12s ease-out, filter 0.2s ease;
   will-change: transform;
-  filter: drop-shadow(0 18px 28px rgba(23, 38, 77, 0.16));
+  filter: drop-shadow(0 18px 30px rgba(23, 38, 77, 0.16));
 }
 
-@media (max-width: 600px) {
-
-  .hero-character-wrap {
-    width: 270px;
-  }
-
-  .character-image {
-    max-width: 250px;
-  }
-}
 .character-svg {
-  width: 100%;
-  max-width: 340px;
-  height: auto;
   display: block;
+  width: 100%;
+  max-width: 450px;
+  height: auto;
   position: relative;
   z-index: 2;
   overflow: visible;
-  filter: drop-shadow(0 18px 28px rgba(23, 38, 77, 0.16));
+  transform: translate3d(0, 0, 0);
+  transform-origin: 50% 38%;
+  transition: transform 0.12s ease-out;
+  will-change: transform;
+  filter: drop-shadow(0 18px 30px rgba(23, 38, 77, 0.16));
 }
 
 #leftEyeMove,
@@ -1822,10 +1701,180 @@
   transition: transform 0.06s linear;
   transform-box: fill-box;
   transform-origin: center;
+  will-change: transform;
 }
 
-@media (max-width: 600px) {
-  .character-svg {
-    max-width: 270px;
+
+/* =========================================
+   HERO CHARACTER - TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .hero-character-wrap {
+    width: 410px;
   }
+
+  .character-image,
+  .character-svg {
+    max-width: 390px;
+  }
+
+  .character-glow {
+    width: 290px;
+    height: 290px;
+  }
+}
+
+
+/* =========================================
+   HERO CHARACTER - MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .hero-character-wrap {
+    width: 300px;
+  }
+
+  .character-image,
+  .character-svg {
+    max-width: 285px;
+  }
+
+  .character-glow {
+    width: 225px;
+    height: 225px;
+  }
+}
+
+
+/* =========================================
+   HERO CHARACTER - SMALL MOBILE
+========================================= */
+/* =========================================
+   CHARACTER RESPONSIVE VERSION
+========================================= */
+
+/* LAPTOP + TABLET */
+.animated-character {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.character-mobile {
+  display: none;
+}
+
+
+/* =========================================
+   PHONE ONLY
+========================================= */
+
+@media (max-width: 600px) {
+
+  /* Remove animated version completely */
+  .animated-character {
+    display: none !important;
+  }
+
+  /* Show original character */
+  .character-mobile {
+    display: block !important;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+
+    filter: drop-shadow(
+      0 14px 25px rgba(23, 38, 77, 0.14)
+    );
+  }
+
+  .hero-character-wrap {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 390px) {
+  .hero-character-wrap {
+    width: 265px;
+  }
+
+  .character-image,
+  .character-svg {
+    max-width: 255px;
+  }
+
+  .character-glow {
+    width: 205px;
+    height: 205px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION - CHARACTER
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .character-image,
+  .character-svg,
+  #leftEyeMove,
+  #rightEyeMove {
+    transition: none;
+  }
+}
+
+
+
+.hero-character-wrap {
+  position: relative;
+  width: 470px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.character-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   EYES
+========================= */
+
+.character-pupil {
+  position: absolute;
+  z-index: 4;
+
+  width: 37px;
+  height: 37px;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  transition: transform 0.05s linear;
+  will-change: transform;
+}
+
+/*
+  Adjust these four values until
+  the pupils sit perfectly inside the eyes.
+*/
+
+.left-pupil {
+  left: 36.5%;
+  top: 28%;
+}
+
+.right-pupil {
+  left: 50.5%;
+  top: 26%;
 }

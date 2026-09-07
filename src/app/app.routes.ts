@@ -13,6 +13,7 @@ import { ProjectsComponent } from './projects/projects';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ServicessComponent } from './servicess/servicess.component';
 import { FeedbackComponent } from './feedback/feedback';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 export const routes: Routes = [
@@ -20,7 +21,10 @@ export const routes: Routes = [
   /* =========================
      ADMIN
   ========================= */
-
+   {
+        path: 'navbar',
+        component: NavbarComponent
+      },
   {
     path: 'admin-login',
     component: AdminLogin

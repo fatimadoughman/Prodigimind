@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -67,65 +66,83 @@ export class HomepageComponent {
   }
 
 
-  /* =========================
-     CHARACTER EYES FOLLOW MOUSE
-  ========================= */
+
+
+
+
+
 
   moveCharacter(event: MouseEvent) {
 
-    const svg = event.currentTarget as SVGElement;
+  const container =
+    event.currentTarget as HTMLElement;
 
-    const leftEye =
-      svg.querySelector('#leftEyeMove') as SVGGElement;
+  const leftEye =
+    container.querySelector('#leftEyeMove') as HTMLElement | null;
 
-    const rightEye =
-      svg.querySelector('#rightEyeMove') as SVGGElement;
+  const rightEye =
+    container.querySelector('#rightEyeMove') as HTMLElement | null;
 
-    if (!leftEye || !rightEye) {
-      return;
-    }
-
-    const rect = svg.getBoundingClientRect();
-
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    const dx = event.clientX - centerX;
-    const dy = event.clientY - centerY;
-
-    const distance =
-      Math.sqrt(dx * dx + dy * dy) || 1;
-
-    const maxMove = 13;
-
-    const moveX =
-      (dx / distance) * maxMove;
-
-    const moveY =
-      (dy / distance) * maxMove;
-
-    const transform =
-      `translate(${moveX}px, ${moveY}px)`;
-
-    leftEye.style.transform = transform;
-    rightEye.style.transform = transform;
+  if (!leftEye || !rightEye) {
+    return;
   }
 
+  this.moveEye(leftEye, event);
+  this.moveEye(rightEye, event);
+}
 
-  resetCharacter() {
 
-    const leftEye =
-      document.querySelector('#leftEyeMove') as SVGGElement;
+private moveEye(
+  eye: HTMLElement,
+  event: MouseEvent
+) {
 
-    const rightEye =
-      document.querySelector('#rightEyeMove') as SVGGElement;
+  const rect = eye.getBoundingClientRect();
 
-    if (leftEye) {
-      leftEye.style.transform = 'translate(0px, 0px)';
-    }
+  const eyeCenterX =
+    rect.left + rect.width / 2;
 
-    if (rightEye) {
-      rightEye.style.transform = 'translate(0px, 0px)';
-    }
+  const eyeCenterY =
+    rect.top + rect.height / 2;
+
+  const dx =
+    event.clientX - eyeCenterX;
+
+  const dy =
+    event.clientY - eyeCenterY;
+
+  const angle =
+    Math.atan2(dy, dx);
+
+  const maxDistance = 9;
+
+  const moveX =
+    Math.cos(angle) * maxDistance;
+
+  const moveY =
+    Math.sin(angle) * maxDistance;
+
+  eye.style.transform =
+    `translate(${moveX}px, ${moveY}px)`;
+}
+
+
+resetCharacter() {
+
+  const leftEye =
+    document.querySelector('#leftEyeMove') as HTMLElement | null;
+
+  const rightEye =
+    document.querySelector('#rightEyeMove') as HTMLElement | null;
+
+  if (leftEye) {
+    leftEye.style.transform =
+      'translate(0px, 0px)';
   }
+
+  if (rightEye) {
+    rightEye.style.transform =
+      'translate(0px, 0px)';
+  }
+}
 }
