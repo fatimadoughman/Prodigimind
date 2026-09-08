@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { FeedbackComponent } from "../../app/feedback/feedback";
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, FeedbackComponent],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })

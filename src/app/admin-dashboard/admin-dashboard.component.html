@@ -4,21 +4,21 @@
     <div>
       <span class="admin-tag">ADMIN DASHBOARD</span>
       <h1>Manage your services</h1>
-      <p>Add projects, courses, and international exam preparation services.</p>
+      <p>Add and edit courses, projects, and exam preparation services.</p>
     </div>
 
     <button class="hero-btn" (click)="openCard()">
-      Add New Item
-      <span>＋</span>
+      Add New Item <span>＋</span>
     </button>
   </div>
 
+
   @if (showCard) {
+
     <div class="form-card">
 
       <div class="form-header">
         <div>
-
           <span class="small-tag">
             {{ editingId ? 'EDIT ITEM' : 'NEW ITEM' }}
           </span>
@@ -26,65 +26,230 @@
           <h2>
             {{ editingId ? 'Edit Item' : 'Add Item' }}
           </h2>
-
         </div>
 
-        <button class="close-btn" (click)="showCard = false">✕</button>
+        <button class="close-btn" (click)="showCard = false">
+          ✕
+        </button>
       </div>
 
-      <label>Category</label>
-      <select [(ngModel)]="newCourse.category" title="Select Category">
-        <option value="Project">Project</option>
+
+      <!-- TYPE -->
+
+      <label>Item Type</label>
+
+      <select [(ngModel)]="newCourse.category">
         <option value="Course">Course</option>
-        <option value="International Exam">International Exam</option>
+        <option value="Project">Project</option>
+        <option value="International Exam">
+          International Exam
+        </option>
       </select>
 
-      <label>Name</label>
+
+      <!-- SECTION -->
+
+      <label>Course Section</label>
+
+      <select [(ngModel)]="newCourse.section">
+
+        <option value="Languages & International Exams">
+          Languages & International Exams
+        </option>
+
+        <option value="University Entrance Preparation">
+          University Entrance Preparation
+        </option>
+
+        <option value="Data & Analytics">
+          Data & Analytics
+        </option>
+
+        <option value="Programming, AI & Cybersecurity">
+          Programming, AI & Cybersecurity
+        </option>
+
+        <option value="Business & Professional Skills">
+          Business & Professional Skills
+        </option>
+
+        <option value="Career Readiness">
+          Career Readiness
+        </option>
+
+      </select>
+
+
+      <!-- ICON -->
+
+      <label>Icon</label>
+
       <input
         type="text"
-        placeholder="Example: IELTS Preparation / Villa Design Project"
-        [(ngModel)]="newCourse.projectName">
+        placeholder="Example: 🇬🇧 / 🎓 / 📊 / 💻"
+        [(ngModel)]="newCourse.icon"
+      >
+
+
+      <!-- TAG -->
+
+      <label>Tag</label>
+
+      <input
+        type="text"
+        placeholder="Example: English / Programming / Exam Preparation"
+        [(ngModel)]="newCourse.tag"
+      >
+
+
+      <!-- NAME -->
+
+      <label>Course / Service Name</label>
+
+      <input
+        type="text"
+        placeholder="Example: IELTS Preparation"
+        [(ngModel)]="newCourse.projectName"
+      >
+
+
+      <!-- MAJOR -->
 
       <label>Major / Field</label>
+
       <input
         type="text"
-        placeholder="Example: Architecture / English / Engineering"
-        [(ngModel)]="newCourse.major">
+        placeholder="Example: English / Engineering / Data Science"
+        [(ngModel)]="newCourse.major"
+      >
+
+
+      <!-- PHOTO -->
 
       <label>Photo</label>
+
       <label class="upload-box">
+
         <input
           #fileInput
           type="file"
           accept="image/*"
-          (change)="onImageUpload($event)" >
+          (change)="onImageUpload($event)"
+        >
+
         <span>Upload photo</span>
+
       </label>
 
+
       @if (newCourse.image) {
+
         <img
           [src]="newCourse.image"
           class="preview-image"
-          title="Image Preview">
+          title="Image Preview"
+        >
+
       }
 
+
+      <!-- DESCRIPTION -->
+
       <label>Description</label>
+
       <textarea
         placeholder="Write a short description..."
         [(ngModel)]="newCourse.description">
       </textarea>
 
-      <label>Fees</label>
+
+      <!-- OLD PRICE -->
+
+      <label>Old Price</label>
+
       <input
         type="text"
-        placeholder="Example: $50"
-        [(ngModel)]="newCourse.fees">
+        placeholder="Example: $180"
+        [(ngModel)]="newCourse.oldPrice"
+      >
+
+
+      <!-- NEW PRICE -->
+
+      <label>Current Price</label>
+
+      <input
+        type="text"
+        placeholder="Example: $129"
+        [(ngModel)]="newCourse.newPrice"
+      >
+
+
+      <!-- DURATION -->
 
       <label>Duration</label>
+
       <input
         type="text"
-        placeholder="Example: 4 Weeks"
-        [(ngModel)]="newCourse.duration">
+        placeholder="Example: 20 Hours / 4 Weeks"
+        [(ngModel)]="newCourse.duration"
+      >
+
+
+      <!-- DETAIL 1 -->
+
+      <label>Detail 1</label>
+
+      <input
+        type="text"
+        placeholder="Example: 20 Hours"
+        [(ngModel)]="newCourse.detail1"
+      >
+
+
+      <!-- DETAIL 2 -->
+
+      <label>Detail 2</label>
+
+      <input
+        type="text"
+        placeholder="Example: Beginner to Advanced"
+        [(ngModel)]="newCourse.detail2"
+      >
+
+
+      <!-- DETAIL 3 -->
+
+      <label>Detail 3</label>
+
+      <input
+        type="text"
+        placeholder="Example: Academic English"
+        [(ngModel)]="newCourse.detail3"
+      >
+
+
+      <!-- DETAIL 4 -->
+
+      <label>Detail 4</label>
+
+      <input
+        type="text"
+        placeholder="Example: Professional Communication"
+        [(ngModel)]="newCourse.detail4"
+      >
+
+
+      <!-- BUTTON -->
+
+      <label>Button Text</label>
+
+      <input
+        type="text"
+        placeholder="Example: Enroll Now"
+        [(ngModel)]="newCourse.buttonText"
+      >
+
 
       <button
         class="add-btn"
@@ -95,7 +260,11 @@
       </button>
 
     </div>
+
   }
+
+
+  <!-- SAVED ITEMS -->
 
   @if (courses.length > 0) {
 
@@ -110,41 +279,95 @@
           <div class="saved-card">
 
             @if (course.image) {
+
               <img
                 [src]="course.image"
-                [title]="course.projectName + ' Image'"
-                class="saved-image" title="{{ course.projectName }} Image">
+                [title]="course.projectName"
+                class="saved-image"
+              >
+
             }
 
             <div class="saved-content">
 
-              <span class="saved-category">
-                {{ course.category }}
-              </span>
+              <div class="saved-top">
 
-              <span class="saved-major">
-                {{ course.major }}
-              </span>
+                <span class="course-icon">
+                  {{ course.icon }}
+                </span>
 
-              <h3>{{ course.projectName }}</h3>
-
-              <p>{{ course.description }}</p>
-
-              <strong class="saved-fees">
-                {{ course.fees }}
-              </strong>
-
-              <div class="card-actions">
-
-                <button (click)="editCourse(course)">
-                  Edit
-                </button>
-
-                <button (click)="deleteCourse(course)">
-                  Delete
-                </button>
+                <span class="saved-category">
+                  {{ course.tag }}
+                </span>
 
               </div>
+
+
+              <span class="saved-major">
+                {{ course.section }}
+              </span>
+
+
+              <h3>
+                {{ course.projectName }}
+              </h3>
+
+
+              <p>
+                {{ course.description }}
+              </p>
+
+
+              <div class="saved-price">
+
+                @if (course.oldPrice) {
+                  <span class="old-price">
+                    {{ course.oldPrice }}
+                  </span>
+                }
+
+                <strong class="new-price">
+                  {{ course.newPrice }}
+                </strong>
+
+              </div>
+
+
+              <div class="saved-details">
+
+                @if (course.detail1) {
+                  <span>• {{ course.detail1 }}</span>
+                }
+
+                @if (course.detail2) {
+                  <span>• {{ course.detail2 }}</span>
+                }
+
+                @if (course.detail3) {
+                  <span>• {{ course.detail3 }}</span>
+                }
+
+                @if (course.detail4) {
+                  <span>• {{ course.detail4 }}</span>
+                }
+
+              </div>
+
+<div class="card-actions">
+
+  <button
+    class="edit-btn"
+    (click)="editCourse(course)">
+    Edit
+  </button>
+
+  <button
+    class="delete-btn"
+    (click)="deleteCourse(course)">
+    Delete
+  </button>
+
+</div>
 
             </div>
 

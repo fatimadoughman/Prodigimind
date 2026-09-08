@@ -1,4 +1,14 @@
-import { Component } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnInit
+} from '@angular/core';
+
+import {
+  CourseService,
+  Course
+} from '../services/course';
+
 
 @Component({
   selector: 'app-main-courses',
@@ -6,41 +16,154 @@ import { Component } from '@angular/core';
   templateUrl: './main-courses.component.html',
   styleUrls: ['./main-courses.component.css']
 })
-export class MainCoursesComponent {
+export class MainCoursesComponent implements OnInit {
 
-  /* =========================
-     COURSE DETAILS
-  ========================= */
+  courses: Course[] = [];
 
-  openCourse: number | null = null;
+  openCourse: string | null = null;
 
 
-  toggleCourse(index: number): void {
+  sections = [
 
-    if (this.openCourse === index) {
+    {
+      number: '01',
+      name: 'Languages & International Exams'
+    },
+
+    {
+      number: '02',
+      name: 'University Entrance Preparation'
+    },
+
+    {
+      number: '03',
+      name: 'Data & Analytics'
+    },
+
+    {
+      number: '04',
+      name: 'Programming, AI & Cybersecurity'
+    },
+
+    {
+      number: '05',
+      name: 'Business & Professional Skills'
+    },
+
+    {
+      number: '06',
+      name: 'Career Readiness'
+    }
+
+  ];
+
+
+  constructor(
+    private courseService: CourseService,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+
+  ngOnInit(): void {
+
+    this.courseService
+      .getCourses()
+      .subscribe({
+
+        next: (data) => {
+
+          this.courses = data;
+
+          console.log(
+            'MAIN COURSES RECEIVED:',
+            this.courses
+          );
+
+          // IMPORTANT
+          // Force Angular to refresh the HTML
+          this.cdr.detectChanges();
+
+        },
+
+        error: (error) => {
+
+          console.error(
+            'COURSES ERROR:',
+            error
+          );
+
+        }
+
+      });
+
+  }
+
+
+  getCoursesBySection(
+    section: string
+  ): Course[] {
+
+    return this.courses.filter(course => {
+
+      const firebaseSection =
+        course.section
+          ?.trim()
+          .toLowerCase();
+
+      const wantedSection =
+        section
+          .trim()
+          .toLowerCase();
+
+      return firebaseSection === wantedSection;
+
+    });
+
+  }
+
+
+  toggleCourse(
+    id: string
+  ): void {
+
+    if (this.openCourse === id) {
+
       this.openCourse = null;
+
     } else {
-      this.openCourse = index;
+
+      this.openCourse = id;
+
     }
 
   }
-  goToWhatsApp(event: MouseEvent): void {
+
+
+  goToWhatsApp(
+    event: MouseEvent,
+    course: Course
+  ): void {
+
     event.preventDefault();
     event.stopPropagation();
 
-    const link = event.currentTarget as HTMLElement;
-    const card = link.closest('.course-card');
-
     const courseName =
-      card?.querySelector('h3')?.textContent?.trim() || 'this course';
+      course.projectName || 'this course';
+
 
     const message =
       `Hi, I'm interested in ${courseName}. I want to know more details about this course.`;
 
-    
+
     const whatsappUrl =
       `https://web.whatsapp.com/send?phone=96181633168&text=${encodeURIComponent(message)}&type=phone-number&app-absent=0`;
-    
-    window.open(whatsappUrl, '-blank');
+
+
+    window.open(
+      whatsappUrl,
+      '_blank'
+    );
+
   }
+
 }

@@ -11,16 +11,42 @@ import {
 import { Observable } from 'rxjs';
 
 export interface Course {
-  id?: string;
-  projectName: string;
-  major: string;
-  image: string;
-  description: string;
-  category: string;
-  fees: string;
-  duration: string;
-}
 
+  id?: string;
+
+  category: string;
+
+  section: string;
+
+  icon: string;
+
+  tag: string;
+
+  projectName: string;
+
+  major: string;
+
+  image: string;
+
+  description: string;
+
+  oldPrice: string;
+
+  newPrice: string;
+
+  duration: string;
+
+  detail1: string;
+
+  detail2: string;
+
+  detail3: string;
+
+  detail4: string;
+
+  buttonText: string;
+
+}
 @Injectable({
   providedIn: 'root'
 })
