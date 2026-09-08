@@ -139,31 +139,24 @@ export class MainCoursesComponent implements OnInit {
   }
 
 
-  goToWhatsApp(
-    event: MouseEvent,
-    course: Course
-  ): void {
+goToWhatsApp(
+  event: MouseEvent,
+  course: Course
+): void {
 
-    event.preventDefault();
-    event.stopPropagation();
+  event.preventDefault();
+  event.stopPropagation();
 
-    const courseName =
-      course.projectName || 'this course';
+  const courseName =
+    course.projectName || 'this course';
 
+  const message =
+    `Hi, I'm interested in ${courseName}. I want to know more details about this course.`;
 
-    const message =
-      `Hi, I'm interested in ${courseName}. I want to know more details about this course.`;
+  const whatsappUrl =
+    `https://wa.me/96181633168?text=${encodeURIComponent(message)}`;
 
-
-    const whatsappUrl =
-      `https://web.whatsapp.com/send?phone=96181633168&text=${encodeURIComponent(message)}&type=phone-number&app-absent=0`;
-
-
-    window.open(
-      whatsappUrl,
-      '_blank'
-    );
-
-  }
+  window.location.href = whatsappUrl;
+}
 
 }
