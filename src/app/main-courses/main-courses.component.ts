@@ -24,5 +24,23 @@ export class MainCoursesComponent {
     }
 
   }
+  goToWhatsApp(event: MouseEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
 
+    const link = event.currentTarget as HTMLElement;
+    const card = link.closest('.course-card');
+
+    const courseName =
+      card?.querySelector('h3')?.textContent?.trim() || 'this course';
+
+    const message =
+      `Hi, I'm interested in ${courseName}. I want to know more details about this course.`;
+
+    
+    const whatsappUrl =
+      `https://web.whatsapp.com/send?phone=96181633168&text=${encodeURIComponent(message)}&type=phone-number&app-absent=0`;
+    
+    window.open(whatsappUrl, '-blank');
+  }
 }

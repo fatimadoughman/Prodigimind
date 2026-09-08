@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FeedbackComponent } from '../../app/feedback/feedback';
 
@@ -9,9 +9,15 @@ import { FeedbackComponent } from '../../app/feedback/feedback';
   standalone: true,
   templateUrl: './Courses.component.html',
   styleUrls: ['./Courses.component.css'],
-  imports: [CommonModule, FormsModule, FeedbackComponent]
+  imports: [
+    CommonModule,
+    FormsModule,
+    FeedbackComponent,
+    RouterLink
+  ]
 })
 export class CoursesComponent {
+
   courses = [
     {
       title: 'AutoCAD Masterclass',
@@ -39,27 +45,33 @@ export class CoursesComponent {
     }
   ];
 
+  searchText = '';
+  selectedCategory = 'All';
 
-constructor(private router: Router) {}
+  goToWhatsApp(courseName: string): void {
+    alert('Clicked: ' + courseName);
 
-openCourse(course: any) {
-  this.router.navigate(['/main-courses']);
-}
-searchText = '';
-selectedCategory = 'All';
+    const message =
+      `Hi, I'm interested in ${courseName}. I want to know more details about this course.`;
 
-get filteredCourses() {
-  return this.courses.filter(course => {
+    const url =
+      `https://wa.me/96181633168?text=${encodeURIComponent(message)}`;
 
-    const matchesSearch =
-      course.title.toLowerCase().includes(this.searchText.toLowerCase()) ||
-      course.description.toLowerCase().includes(this.searchText.toLowerCase());
+    window.location.href = url;
+  }
+  get filteredCourses() {
 
-    const matchesCategory =
-      this.selectedCategory === 'All' ||
-      course.category === this.selectedCategory;
+    return this.courses.filter(course => {
 
-    return matchesSearch && matchesCategory;
-  });
-}
+      const matchesSearch =
+        course.title.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        course.description.toLowerCase().includes(this.searchText.toLowerCase());
+
+      const matchesCategory =
+        this.selectedCategory === 'All' ||
+        course.category === this.selectedCategory;
+
+      return matchesSearch && matchesCategory;
+    });
+  }
 }

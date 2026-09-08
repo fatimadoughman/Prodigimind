@@ -1,36 +1,55 @@
 <section class="courses-page">
-<div class="courses-header">
-  <span class="section-tag">COURSES & TRAINING</span>
 
-  <h1>Professional learning paths for ambitious students</h1>
+  <div class="courses-header">
+    <span class="section-tag">COURSES & TRAINING</span>
 
+    <h1>Professional learning paths for ambitious students</h1>
+  </div>
 
-</div>
-<a class="explore-link" routerLink="/main-courses">
-  Explore More →
-</a>
+  <a class="explore-link"
+     routerLink="/main-courses">
+    Explore More →
+  </a>
 
-<div class="courses-grid">
-  @for (course of courses; track course.title) {
-    <div class="course-card" (click)="openCourse(course)">
+  <div class="courses-grid">
 
-      <div class="course-icon">{{ course.icon }}</div>
+    @for (course of courses; track course.title) {
 
-      <span class="course-category">{{ course.category }}</span>
+    <div class="course-card">
 
-      <h3>{{ course.title }}</h3>
+      <div class="course-icon">
+        {{ course.icon }}
+      </div>
 
-      <p>{{ course.description }}</p>
+      <span class="course-category">
+        {{ course.category }}
+      </span>
+
+      <h3>
+        {{ course.title }}
+      </h3>
+
+      <p>
+        {{ course.description }}
+      </p>
 
       <div class="course-info">
         <span>{{ course.duration }}</span>
         <strong>{{ course.price }}</strong>
       </div>
 
-  <button>Enroll Now</button>
+      <button type="button"
+              class="enroll-btn"
+              (click)="goToWhatsApp(course.title)">
+        Enroll Now →
+      </button>
 
     </div>
-  }
-</div>
+
+    }
+
+  </div>
+
 </section>
+
 <app-feedback></app-feedback>
