@@ -14,6 +14,63 @@
   box-sizing: border-box;
   background: radial-gradient( circle at top left, rgba(249, 147, 22, 0), transparent 30% ), linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
 }
+.courses-search {
+  max-width: 600px;
+  margin: 35px auto 45px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.courses-search input {
+  width: 100%;
+  height: 54px;
+  padding: 0 50px;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  font-size: 15px;
+  outline: none;
+  background: #fff;
+  transition: 0.3s ease;
+}
+
+.courses-search input:focus {
+  border-color: #222;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  font-size: 22px;
+  color: #777;
+  z-index: 2;
+}
+
+.clear-search {
+  position: absolute;
+  right: 16px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  color: #777;
+  cursor: pointer;
+}
+
+.no-courses {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.no-courses h3 {
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+
+.no-courses p {
+  color: #777;
+}
 
 /* =========================
    HEADER
@@ -571,4 +628,235 @@
     .course-card > a:hover {
       transform: none;
     }
+}
+/* =========================
+   COURSE SEARCH
+========================= */
+
+.courses-search {
+  width: min(680px, 100%);
+  margin: -25px auto 55px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+
+/* Search input */
+
+.courses-search input {
+  width: 100%;
+  height: 62px;
+  box-sizing: border-box;
+
+  padding: 0 58px 0 56px;
+
+  border: 1px solid #e5e9f0;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  color: #17264d;
+  font-size: 14px;
+  font-weight: 600;
+
+  outline: none;
+
+  box-shadow:
+    0 10px 30px rgba(23, 38, 77, 0.06),
+    0 2px 8px rgba(23, 38, 77, 0.03);
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* Placeholder */
+
+.courses-search input::placeholder {
+  color: #9ca4b0;
+  font-weight: 500;
+}
+
+
+/* Hover */
+
+.courses-search:hover input {
+  border-color: rgba(249, 145, 22, 0.4);
+}
+
+
+/* Focus */
+
+.courses-search input:focus {
+  border-color: #f99116;
+
+  box-shadow:
+    0 0 0 4px rgba(249, 145, 22, 0.10),
+    0 14px 35px rgba(23, 38, 77, 0.09);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   SEARCH ICON
+========================= */
+
+.search-icon {
+  position: absolute;
+  left: 20px;
+
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #f99116;
+  font-size: 21px;
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================
+   CLEAR BUTTON
+========================= */
+
+.clear-search {
+  position: absolute;
+  right: 16px;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #f7f8fb;
+
+  color: #667085;
+  font-size: 19px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.clear-search:hover {
+  background: #fff1df;
+  color: #f99116;
+  transform: rotate(90deg);
+}
+
+
+/* =========================
+   NO RESULTS
+========================= */
+
+.no-courses {
+  grid-column: 1 / -1;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 55px 25px;
+
+  text-align: center;
+
+  border: 1px dashed #e2e6ed;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.7);
+}
+
+
+.no-courses::before {
+  content: "⌕";
+
+  width: 55px;
+  height: 55px;
+
+  margin: 0 auto 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: #fff2e2;
+
+  color: #f99116;
+  font-size: 25px;
+}
+
+
+.no-courses h3 {
+  margin: 0 0 7px;
+
+  color: #17264d;
+  font-size: 20px;
+  font-weight: 850;
+}
+
+
+.no-courses p {
+  margin: 0;
+
+  color: #8a93a2;
+  font-size: 13px;
+}
+
+
+/* =========================
+   MOBILE SEARCH
+========================= */
+
+@media (max-width: 680px) {
+
+  .courses-search {
+    width: 100%;
+    margin: -15px auto 38px;
+  }
+
+  .courses-search input {
+    height: 56px;
+    padding-left: 51px;
+    padding-right: 52px;
+
+    border-radius: 16px;
+
+    font-size: 13px;
+  }
+
+  .search-icon {
+    left: 18px;
+    font-size: 19px;
+  }
+
+  .clear-search {
+    right: 13px;
+
+    width: 30px;
+    height: 30px;
+  }
+
 }

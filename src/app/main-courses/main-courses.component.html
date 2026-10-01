@@ -13,11 +13,32 @@
 
 
  
+<div class="courses-search">
 
+  <span class="search-icon">⌕</span>
+
+  <input
+    type="text"
+    placeholder="Search courses..."
+    [value]="searchTerm"
+    (input)="onSearch($event)"
+  />
+
+  @if (searchTerm) {
+    <button
+      type="button"
+      class="clear-search"
+      (click)="clearSearch()"
+    >
+      ×
+    </button>
+  }
+
+</div>
 
   <div class="courses-grid">
 
-    @for (course of courses; track course.id) {
+   @for (course of filteredCourses; track course.id) {
 
       <article
         class="course-card"
